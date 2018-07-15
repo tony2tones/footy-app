@@ -1,0 +1,25 @@
+{
+  "name": "footy-app",
+  "version": "1.0.0",
+  "description": "Planning on making a nice footy app to get me the upcoming games info",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tony2tones/footy-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tony2tones/footy-app/issues"
+  },
+  "homepage": "https://github.com/tony2tones/footy-app#readme",
+  "devDependencies": {
+    "webpack": "^4.16.0",
+    "webpack-cli": "^3.0.8"
+  }
+}
