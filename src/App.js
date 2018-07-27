@@ -7,16 +7,30 @@ const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f
 const baseUrl = 'https://apifootball.com/api/?action=';
 
 class App extends Component {
-    static apiForeCast(latitude, longitude) {
-        return `${apiForeCast}?lat=${latitude}&lon=${longitude}&appid=${apiKEY}`;
+    static headToHead(teamA, teamB) {
+        return `${baseUrl}get_H2H&firstTeam=${teamA}&firstTeam=${teamB}&APIkey=${apiKEY}`;
     }
     constructor() {
         super(); {
+            state = {
+                teamA: 'Chelsea',
+                teamB: 'Liverpool',
+            }
 
         }
     }
     componentDidMount() {
-        // https://apifootball.com/api/?action=get_H2H&firstTeam=Chelsea&secondTeam=Arsenal&APIkey=
+        hToH = ({ teamB, teamB }) => {
+            request
+                .get(App.headToHead(teamA, teamB))
+                .set('accept', 'json')
+                .then((res) => {
+                    console.log(res.body);
+                })
+                .catch(() => {
+                    // will handel this later
+                });
+        };
     }
 
     render() {
