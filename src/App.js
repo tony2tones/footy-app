@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
-
 // Constant variables
 const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f';
 const baseUrl = 'https://apifootball.com/api/?action=';
@@ -20,23 +19,23 @@ class App extends Component {
         }
     }
     componentDidMount() {
-
+        const hToH = ({ teamB, teamB }) => {
+            request
+                .get(App.headToHead(teamA, teamB))
+                .set('accept', 'json')
+                .then((res) => {
+                    console.log(res.body);
+                })
+                .catch(() => {
+                    // will handel this later
+                });
+        };
         if(this.state.teamA != null){
-            this.hToH();
+            hToH(teamB, teamB);
         }
     }
 
-    hToH = ({ teamB, teamB }) => {
-        request
-            .get(App.headToHead(teamA, teamB))
-            .set('accept', 'json')
-            .then((res) => {
-                console.log(res.body);
-            })
-            .catch(() => {
-                // will handel this later
-            });
-    };
+    
 
     render() {
         return (
