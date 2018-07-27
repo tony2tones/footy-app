@@ -20,18 +20,23 @@ class App extends Component {
         }
     }
     componentDidMount() {
-        hToH = ({ teamB, teamB }) => {
-            request
-                .get(App.headToHead(teamA, teamB))
-                .set('accept', 'json')
-                .then((res) => {
-                    console.log(res.body);
-                })
-                .catch(() => {
-                    // will handel this later
-                });
-        };
+
+        if(this.state.teamA != null){
+            this.hToH();
+        }
     }
+
+    hToH = ({ teamB, teamB }) => {
+        request
+            .get(App.headToHead(teamA, teamB))
+            .set('accept', 'json')
+            .then((res) => {
+                console.log(res.body);
+            })
+            .catch(() => {
+                // will handel this later
+            });
+    };
 
     render() {
         return (
