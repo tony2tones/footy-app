@@ -22,15 +22,15 @@ class App extends Component {
     componentDidMount() {
         
         if (this.state.teamA != null) {
-            this.hToH(this.state.teamB, this.state.teamB);
+            this.hToH(this.state.teamA,this.state.teamB);
         } else {
             console.log('this has failed');
         }
     }
 
-    hToH({teamA,teamB}) {
+    hToH(teamB,teamA) {
         request
-            .get(App.headToHead(teamA,teamB))
+            .get(`https://apifootball.com/api/?action=get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
             .set('accept', 'json')
             .then((res) => {
                 console.log(res.body);
