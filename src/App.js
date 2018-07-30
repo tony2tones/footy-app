@@ -11,7 +11,7 @@ class App extends Component {
     }
     constructor() {
         super(); {
-            state = {
+            this.state = {
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
             }
@@ -19,23 +19,28 @@ class App extends Component {
         }
     }
     componentDidMount() {
-        const hToH = ({ teamB, teamB }) => {
-            request
-                .get(App.headToHead(teamA, teamB))
-                .set('accept', 'json')
-                .then((res) => {
-                    console.log(res.body);
-                })
-                .catch(() => {
-                    // will handel this later
-                });
-        };
-        if(this.state.teamA != null){
-            hToH(teamB, teamB);
+        
+        if (this.state.teamA != null) {
+            this.hToH(this.state.teamB, this.state.teamB);
+        } else {
+            console.log('this has failed');
         }
     }
 
-    
+    hToH() {
+        request
+            .get(App.headToHead(this.state.teamB, this.state.teamB))
+            .set('accept', 'json')
+            .then((res) => {
+                console.log(res.body);
+            })
+            .catch(() => {
+                // will handel this later
+            });
+    };
+   
+
+
 
     render() {
         return (
