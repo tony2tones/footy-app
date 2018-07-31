@@ -1,7 +1,7 @@
 import React from 'react';
 
-const HomeTeamInput = () => {
-    return <input type="text" />
-}
+const HomeTeamInput = (props) => {
+    return <input type="text" onChange={props.changed}/>;
+};
 
 export default HomeTeamInput;

@@ -14,15 +14,20 @@ class App extends Component {
     static headToHead(teamA, teamB) {
         return `${baseUrl}get_H2H&firstTeam=${teamA}&firstTeam=${teamB}&APIkey=${apiKEY}`;
     }
-    constructor() {
-        super(); {
+    constructor(props) {
+        super(props); {
             this.state = {
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
                 response: '',
             }
-
         }
+    }
+
+    homeTeamChange = (event) => {
+        this.setState({
+            teamA: event.target.value
+        });
     }
     componentDidMount() {
 
@@ -61,7 +66,7 @@ class App extends Component {
         return (
             <div>
                 <p>React here!</p>
-                <HomeTeamInput />
+                <HomeTeamInput changed={this.homeTeamChange.bind(this)} />
                 <PastResults home={this.state.teamA} />
                 <PastResults away={this.state.teamB} />
 
