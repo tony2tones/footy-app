@@ -15,6 +15,7 @@ class App extends Component {
             this.state = {
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
+                response: '',
             }
 
         }
@@ -34,6 +35,11 @@ class App extends Component {
             .set('accept', 'json')
             .then((res) => {
                 console.log(res.body);
+                this.setState({
+                    response: res,
+                });
+                console.log("match away score ",this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_name,' ',this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_score
+                );
             })
             .catch(() => {
                 
