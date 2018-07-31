@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ResultsInput = () => {
+const homeTeamInput = () => {
     return <input type="text" />
 }
 
-export default ResultsInput;
+export default HomeTeamInput;

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import request from "superagent";
 
-import ResultsInput from './ResultsInput/ResultsInput';
+import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
 
 // Constant variables
 const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f';
@@ -60,6 +60,7 @@ class App extends Component {
         return (
             <div>
                 <p>React here!</p>
+                <HomeTeamInput />
             </div >
         );
     }
