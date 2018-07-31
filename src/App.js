@@ -40,6 +40,8 @@ class App extends Component {
                 });
                 console.log("match away score ",this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_name,' ',this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_score
                 );
+                console.log("match home score ",this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_name,' ',this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_score
+                );
             })
             .catch(() => {
                 
