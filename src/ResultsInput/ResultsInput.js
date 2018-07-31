@@ -1,7 +1,7 @@
-import react from 'React';
+import React from 'react';
 
 const ResultsInput = () => {
-
+    return <input type="text" />
 }
 
 export default ResultsInput;

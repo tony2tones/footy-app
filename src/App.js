@@ -1,10 +1,13 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import request from 'superagent';
+import request from "superagent";
+
+import ResultsInput from './ResultsInput/ResultsInput';
 
 // Constant variables
 const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f';
 const baseUrl = 'https://apifootball.com/api/?action=';
+const resutsUrl = 'https://apifootball.com/api/?action=get_events&from=2016-10-30&to=2016-11-01';
 
 class App extends Component {
     static headToHead(teamA, teamB) {
@@ -21,15 +24,15 @@ class App extends Component {
         }
     }
     componentDidMount() {
-        
+
         if (this.state.teamA != null) {
-            this.hToH(this.state.teamA,this.state.teamB);
+            this.hToH(this.state.teamA, this.state.teamB);
         } else {
             console.log('this has failed');
         }
     }
 
-    hToH(teamB,teamA) {
+    hToH(teamB, teamA) {
         request
             .get(`https://apifootball.com/api/?action=get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
             .set('accept', 'json')
@@ -38,17 +41,18 @@ class App extends Component {
                 this.setState({
                     response: res,
                 });
-                console.log("match away score ",this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_name,' ',this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_score
+                console.log("match away score ", this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_score
                 );
-                console.log("match home score ",this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_name,' ',this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_score
+                console.log("match home score ", this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_score
                 );
             })
             .catch(() => {
-                
+
                 // will handel this later
             });
     };
-   
+
+    //https://apifootball.com/api/?action=get_events&from=2016-10-30&to=2016-11-01&league_id=62&APIkey=xxxxxxxxxxxxxx
 
 
 
