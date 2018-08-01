@@ -91,10 +91,14 @@ class App extends Component {
                 <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
                 <div className="vs">
                     <div className="home">
-                        <PastResults home={this.state.teamA} teamAScore={this.state.teamAScore} />
+                        <PastResults home={this.state.teamA} />
+                    </div>
+                    <div className="score">
+                    <PastResults teamAScore={this.state.teamAScore} />
+                    <PastResults teamAScore={this.state.teamAScore} />
                     </div>
                     <div className="away">
-                        <PastResults away={this.state.teamB} teamBScore={this.state.teamBScore} />
+                        <PastResults away={this.state.teamB} />
                     </div>
                 </div>
 

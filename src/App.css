@@ -1,14 +1,21 @@
 .vs {
-    width: 500px;
+    display: flex;
+    justify-content: space-between;
     border: 1px solid black;
-    overflow: hidden; /* add this to contain floated children */
 }
 .home {
-    width: 300px;
-    float:left; /* add this */
-    border: 1px solid red;
+    width: 250px;
+    text-align: center;
+    border: 1px solid black;
 }
 .away {
-    border: 1px solid green;
-    float: left; /* add this */
+    width: 250px;
+    text-align: center;
+    border: 1px solid black;
+}
+.score {
+    width: 250px;
+    display:flex;
+    text-align: center;
+    border: 1px solid black;
 }
