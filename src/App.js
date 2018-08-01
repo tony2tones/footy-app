@@ -67,7 +67,7 @@ class App extends Component {
             <div>
                 <p>React here!</p>
                 <HomeTeamInput changed={this.homeTeamChange.bind(this)} />
-                <PastResults home={this.state.teamA} />
+                <PastResults home={this.state.teamA} HomeTeam={this.state.teamA} />
                 <PastResults away={this.state.teamB} />
 
             </div >
