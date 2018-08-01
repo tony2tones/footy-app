@@ -5,6 +5,7 @@ import request from "superagent";
 import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
 import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
 import PastResults from "./PastResults/PastResults";
+import Score from './Score/Score';
 
 import './App.css';
 
@@ -93,16 +94,15 @@ class App extends Component {
                     <div className="home">
                         <PastResults home={this.state.teamA} />
                     </div>
-                    <div className="score">
-                    <PastResults teamAScore={this.state.teamAScore} />
-                    <PastResults teamAScore={this.state.teamAScore} />
+                    <div className="scoreHome">
+                        <Score homeTeam={this.state.teamAScore} awayTeam={this.state.teamBScore} />
                     </div>
-                    <div className="away">
-                        <PastResults away={this.state.teamB} />
-                    </div>
+                
+                    <PastResults  />
                 </div>
-
-                ``
+                <div className="away">
+                    <PastResults away={this.state.teamB} />
+                </div>
             </div >
         );
     }
