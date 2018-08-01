@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import request from "superagent";
 
 import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
+import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
 import PastResults from "./PastResults/PastResults";
 
 // Constant variables
@@ -27,6 +28,11 @@ class App extends Component {
     homeTeamChange = (event) => {
         this.setState({
             teamA: event.target.value
+        });
+    }
+    AwayTeamChange = (event) => {
+        this.setState({
+            teamB: event.target.value
         });
     }
     componentDidMount() {
@@ -66,8 +72,9 @@ class App extends Component {
         return (
             <div>
                 <p>React here!</p>
-                <HomeTeamInput changed={this.homeTeamChange.bind(this)} />
-                <PastResults home={this.state.teamA} HomeTeam={this.state.teamA} />
+                <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
+                <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
+                <PastResults home={this.state.teamA}  />
                 <PastResults away={this.state.teamB} />
 
             </div >
