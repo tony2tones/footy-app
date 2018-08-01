@@ -20,6 +20,8 @@ class App extends Component {
             this.state = {
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
+                teamAScore:'',
+                teamBScore:'',
                 response: '',
             }
         }
@@ -57,6 +59,7 @@ class App extends Component {
                 );
                 console.log("match home score ", this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_score
                 );
+                this.mapResults(res.body);
             })
             .catch(() => {
 
@@ -65,18 +68,26 @@ class App extends Component {
     };
 
     //https://apifootball.com/api/?action=get_events&from=2016-10-30&to=2016-11-01&league_id=62&APIkey=xxxxxxxxxxxxxx
-
+    mapResults(data){
+        
+        const teamBScore = data.firstTeam_VS_secondTeam[1].match_awayteam_score;
+        console.log(teamBScore);
+        this.setState({
+            teamBScore:teamBScore
+        })
+    }
 
 
     render() {
+       
         return (
             <div>
-                <p>React here!</p>
+                <p>Footy App!</p>
                 <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                 <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
-                <PastResults home={this.state.teamA}  />
-                <PastResults away={this.state.teamB} />
-
+                <PastResults home={this.state.teamA} />
+                <PastResults away={this.state.teamB} teamBScore={this.state.teamBScore} />
+``
             </div >
         );
     }
