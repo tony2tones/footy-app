@@ -6,6 +6,8 @@ import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
 import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
 import PastResults from "./PastResults/PastResults";
 
+import './App.css';
+
 // Constant variables
 const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f';
 const baseUrl = 'https://apifootball.com/api/?action=';
@@ -20,8 +22,8 @@ class App extends Component {
             this.state = {
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
-                teamAScore:'',
-                teamBScore:'',
+                teamAScore: '',
+                teamBScore: '',
                 response: '',
             }
         }
@@ -68,28 +70,35 @@ class App extends Component {
     };
 
     //https://apifootball.com/api/?action=get_events&from=2016-10-30&to=2016-11-01&league_id=62&APIkey=xxxxxxxxxxxxxx
-    mapResults(data){
+    mapResults(data) {
         const teamAScore = data.firstTeam_VS_secondTeam[1].match_hometeam_score;
         console.log(teamAScore);
         const teamBScore = data.firstTeam_VS_secondTeam[1].match_awayteam_score;
         console.log(teamBScore);
         this.setState({
-            teamBScore:teamBScore,
-            teamAScore:teamAScore
+            teamBScore: teamBScore,
+            teamAScore: teamAScore
         })
     }
 
 
     render() {
-       
+
         return (
             <div>
                 <p>Footy App!</p>
                 <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                 <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
-                <PastResults home={this.state.teamA} teamAScore={this.state.teamAScore}/>
-                <PastResults away={this.state.teamB} teamBScore={this.state.teamBScore} />
-``
+                <div className="vs">
+                    <div className="home">
+                        <PastResults home={this.state.teamA} teamAScore={this.state.teamAScore} />
+                    </div>
+                    <div className="away">
+                        <PastResults away={this.state.teamB} teamBScore={this.state.teamBScore} />
+                    </div>
+                </div>
+
+                ``
             </div >
         );
     }
