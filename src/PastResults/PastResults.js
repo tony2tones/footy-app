@@ -1,10 +1,16 @@
 import React from 'react';
 
+import './PastResults.css';
+
 const PastResults = (props) => {
     return (
         <div>
-            <p>{props.home} {props.teamAScore}</p>
-            <p>{props.away} {props.teamBScore}</p>
+            <div>
+                {props.homeTeam}
+            </div>
+            <div>
+                {props.awayTeam}
+            </div>
         </div>
     )
 }

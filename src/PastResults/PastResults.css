@@ -1,8 +1,8 @@
-.vs {
+.grid {
     display: grid;
     position: relative;
     height: 20px;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 30px;
+    grid-template-rows: 100px;
     text-align: center;
   }
