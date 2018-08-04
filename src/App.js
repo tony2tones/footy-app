@@ -29,6 +29,12 @@ class App extends Component {
                 teamBScore2: '',
                 teamAScore3: '',
                 teamBScore3: '',
+                teamAScore4: '',
+                teamBScore4: '',
+                teamAScore5: '',
+                teamBScore5: '',
+                teamAScore6: '',
+                teamBScore6: '',
                 response: '',
             }
         }
@@ -59,12 +65,26 @@ class App extends Component {
             .set('accept', 'json')
             .then((res) => {
                 console.log(res.body);
+                
                 this.setState({
                     response: res,
                 });
-                console.log("match away score ", this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_score
+                let newTeamStructure = this.state.response.body.firstTeam_VS_secondTeam;
+
+                // newTeamStructure.map(function(index,current){
+                //     current.match_hometeam_name = current.teamhome;
+                //     current.match_awayteam_name = current.teamaway;
+                //     console.log('current', current)
+                //     console.log('index', index)
+                // });
+                const homeTeam = newTeamStructure 
+                let teamName = newTeamStructure.map(toast => toast.match_awayteam_name);
+                console.log('hopefully this will work great ', teamName );
+
+                console.log(newTeamStructure);
+                console.log("match away score ", this.state.response.body.firstTeam_VS_secondTeam[2].match_awayteam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_score
                 );
-                console.log("match home score ", this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_score
+                console.log("match home score ", this.state.response.body.firstTeam_VS_secondTeam[2].match_hometeam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_score
                 );
                 this.mapResults(res.body);
             })
@@ -82,13 +102,25 @@ class App extends Component {
         const teamBScore2 = data.firstTeam_VS_secondTeam[1].match_awayteam_score;
         const teamAScore3 = data.firstTeam_VS_secondTeam[2].match_hometeam_score;
         const teamBScore3 = data.firstTeam_VS_secondTeam[2].match_awayteam_score;
+        const teamAScore4 = data.firstTeam_VS_secondTeam[3].match_hometeam_score;
+        const teamBScore4 = data.firstTeam_VS_secondTeam[3].match_awayteam_score;
+        const teamAScore5 = data.firstTeam_VS_secondTeam[4].match_hometeam_score;
+        const teamBScore5 = data.firstTeam_VS_secondTeam[4].match_awayteam_score;
+        const teamAScore6 = data.firstTeam_VS_secondTeam[5].match_hometeam_score;
+        const teamBScore6 = data.firstTeam_VS_secondTeam[5].match_awayteam_score;
         this.setState({
             teamBScore1: teamBScore1,
             teamAScore1: teamAScore1,
             teamBScore2: teamBScore2,
             teamAScore2: teamAScore2,
             teamBScore3: teamBScore3,
-            teamAScore3: teamAScore3
+            teamAScore3: teamAScore3,
+            teamBScore4: teamBScore4,
+            teamAScore4: teamAScore4,
+            teamBScore5: teamBScore5,
+            teamAScore5: teamAScore5,
+            teamBScore6: teamBScore6,
+            teamAScore6: teamAScore6
         })
     }
 
@@ -97,24 +129,51 @@ class App extends Component {
 
         return (
             <div>
-                <p>Footy App!</p>
+                <h2>Footy App!</h2>
                 <div className="vs">
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
                     <PastResults
-                        homeTeam={this.state.teamAScore1}
-                        awayTeam={this.state.teamBScore1}
+                        score={this.state.teamAScore1}
                     />
                     <PastResults
-                        homeTeam={this.state.teamAScore2}
-                        awayTeam={this.state.teamBScore2}
+                        score={this.state.teamBScore1}
                     />
                     <PastResults
-                        homeTeam={this.state.teamAScore3}
-                        awayTeam={this.state.teamBScore3}
+                        score={this.state.teamAScore2}
                     />
-                </div >
-            </div>
+                    <PastResults
+                        score={this.state.teamBScore2}
+                    />
+                     <PastResults
+                        score={this.state.teamAScore3}
+                    />
+                    <PastResults
+                        score={this.state.teamBScore3}
+                    />
+                     <PastResults
+                        score={this.state.teamAScore4}
+                    />
+                    <PastResults
+                        score={this.state.teamBScore4}
+                    />
+                     <PastResults
+                        score={this.state.teamAScore5}
+                    />
+                    <PastResults
+                        score={this.state.teamBScore5}
+                    />
+                    <PastResults
+                        score={this.state.teamAScore6}
+                    />
+                    <PastResults
+                        score={this.state.teamBScore6}
+                    />
+                    this.state.forEach(element => {
+                        
+                    });
+                </div>
+            </div >
         );
     }
 }
