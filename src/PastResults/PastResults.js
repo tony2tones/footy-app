@@ -2,13 +2,13 @@ import React from 'react';
 
 import './PastResults.css';
 
-const PastResults = (props) => {
+PastResults = (props) => {
+    const teamNames = props.response;
+    const teamScore = teamNames.map((teamName) => {
+        <li>{teamName}</li>
+    });
     return (
-        <div>
-            <div>
-                <div>{props.score}</div>
-            </div>
-        </div>
+        <ul>{teamScore}</ul>
     )
 }
 
