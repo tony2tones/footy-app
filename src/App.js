@@ -78,8 +78,12 @@ class App extends Component {
                 //     console.log('index', index)
                 // });
                 const homeTeam = newTeamStructure 
-                let teamName = newTeamStructure.map(toast => toast.match_awayteam_name);
-                console.log('hopefully this will work great ', teamName );
+                let teamNameAway = newTeamStructure.map(toast => toast.match_awayteam_name);
+                
+
+                let teamNameHome = newTeamStructure.map(toast => toast.match_hometeam_name);
+                console.log('Home team ', teamNameHome[0] , ' ', teamNameAway[0] );
+                console.log('Away team ', teamNameAway );
 
                 console.log(newTeamStructure);
                 console.log("match away score ", this.state.response.body.firstTeam_VS_secondTeam[2].match_awayteam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_score
