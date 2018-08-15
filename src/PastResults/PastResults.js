@@ -2,14 +2,10 @@ import React from 'react';
 
 import './PastResults.css';
 
-// const numbers = [1, 2, 3, 4, 5];
-
-// const PastResults = numbers.map((number) => (
-//         <li>{number}</li>
-//     ));
 
 const PastResults = (props) => {
     const teamNames = props.teamName;
+{console.log('ola senoir ',teamNames)}
     const teamScore = teamNames.map((teamName) => {
         <li>{teamName}</li>
     });

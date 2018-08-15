@@ -50,6 +50,16 @@ class App extends Component {
             teamB: event.target.value
         });
     }
+
+    Scores = ([response]) => {
+        const teamScores = response.map((teamScore) => 
+            <li>{teamScore}</li>
+        );
+        return (
+            <ul>{teamScores}</ul>
+        )
+    }
+
     componentDidMount() {
 
         if (this.state.teamA != null) {
@@ -70,7 +80,6 @@ class App extends Component {
                 this.setState({
                     response: res.body.firstTeam_VS_secondTeam,
                 });
-                console.log(Response);
 
             })
             .catch(() => {
@@ -82,6 +91,7 @@ class App extends Component {
     //https://apifootball.com/api/?action=get_events&from=2016-10-30&to=2016-11-01&league_id=62&APIkey=xxxxxxxxxxxxxx
 
     render() {
+
         return (
             <div>
                 <h2>Footy App!</h2>
