@@ -89,7 +89,7 @@ class App extends Component {
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
                     <PastResults
-                        teamName={this.state.response}
+                        teamName={[this.state.response]}
                     />
                 </div>
             </div >

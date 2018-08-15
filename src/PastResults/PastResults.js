@@ -2,21 +2,21 @@ import React from 'react';
 
 import './PastResults.css';
 
-const numbers = [1, 2, 3, 4, 5];
+// const numbers = [1, 2, 3, 4, 5];
 
-const PastResults = numbers.map((number) => (
-        <li>{number}</li>
-    ));
+// const PastResults = numbers.map((number) => (
+//         <li>{number}</li>
+//     ));
 
-// PastResults = (props) => {
-//     const teamNames = props.teamName;
-//     const teamScore = teamNames.map((teamName) => {
-//         <li>{teamName}</li>
-//     });
-//     return (
-//         <ul>{teamScore}</ul>
-//     )
-// }
+const PastResults = (props) => {
+    const teamNames = props.teamName;
+    const teamScore = teamNames.map((teamName) => {
+        <li>{teamName}</li>
+    });
+    return (
+        <ul>{teamScore}</ul>
+    )
+}
 
 
 // <div>
