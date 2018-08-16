@@ -65,7 +65,7 @@ class App extends Component {
             .set('accept', 'json')
             .then((res) => {
                 console.log(res.body);
-                
+
                 this.setState({
                     response: res,
                 });
@@ -77,13 +77,13 @@ class App extends Component {
                 //     console.log('current', current)
                 //     console.log('index', index)
                 // });
-                const homeTeam = newTeamStructure 
+                const homeTeam = newTeamStructure
                 let teamNameAway = newTeamStructure.map(toast => toast.match_awayteam_name);
-                
+
 
                 let teamNameHome = newTeamStructure.map(toast => toast.match_hometeam_name);
-                console.log('Home team ', teamNameHome[0] , ' ', teamNameAway[0] );
-                console.log('Away team ', teamNameAway );
+                console.log('Home team ', teamNameHome[0], ' ', teamNameAway[0]);
+                console.log('Away team ', teamNameAway[1]);
 
                 console.log(newTeamStructure);
                 console.log("match away score ", this.state.response.body.firstTeam_VS_secondTeam[2].match_awayteam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_score
@@ -128,58 +128,64 @@ class App extends Component {
         })
     }
 
-
-    render() {
-
-        return (
-            <div>
-                <h2>Footy App!</h2>
-                <div className="vs">
-                    <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
-                    <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
-                    <PastResults
-                        score={this.state.teamAScore1}
-                    />
-                    <PastResults
-                        score={this.state.teamBScore1}
-                    />
-                    <PastResults
-                        score={this.state.teamAScore2}
-                    />
-                    <PastResults
-                        score={this.state.teamBScore2}
-                    />
-                     <PastResults
-                        score={this.state.teamAScore3}
-                    />
-                    <PastResults
-                        score={this.state.teamBScore3}
-                    />
-                     <PastResults
-                        score={this.state.teamAScore4}
-                    />
-                    <PastResults
-                        score={this.state.teamBScore4}
-                    />
-                     <PastResults
-                        score={this.state.teamAScore5}
-                    />
-                    <PastResults
-                        score={this.state.teamBScore5}
-                    />
-                    <PastResults
-                        score={this.state.teamAScore6}
-                    />
-                    <PastResults
-                        score={this.state.teamBScore6}
-                    />
-                    this.state.forEach(element => {
-                        
-                    });
-                </div>
-            </div >
-        );
+    teamName() {
+        const team = newTeamStructure.map((index, current) => {
+            current.match_hometeam_name = current.teamhome;
+            current.match_awayteam_name = current.teamaway;
+            console.log('current', current)
+            console.log('index', index)
+        });
     }
-}
-export default App;
-ReactDOM.render(<App />, document.getElementById("app"));
+
+        render() {
+
+            return (
+                <div>
+                    <h2>Footy App!</h2>
+                    <div className="vs">
+                        <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
+                        <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
+                        <PastResults
+                            score={this.state.response.body}
+                        />
+                        {/* <PastResults
+                            score={this.state.teamBScore1}
+                        />
+                        <PastResults
+                            score={this.state.teamAScore2}
+                        />
+                        <PastResults
+                            score={this.state.teamBScore2}
+                        />
+                        <PastResults
+                            score={this.state.teamAScore3}
+                        /> */}
+                        {/* <PastResults
+                            score={this.state.teamBScore3}
+                        />
+                        <PastResults
+                            score={this.state.teamAScore4}
+                        />
+                        <PastResults
+                            score={this.state.teamBScore4}
+                        />
+                        <PastResults
+                            score={this.state.teamAScore5}
+                        />
+                        <PastResults
+                            score={this.state.teamBScore5}
+                        />
+                        <PastResults
+                            score={this.state.teamAScore6}
+                        />
+                        <PastResults
+                            score={this.state.teamBScore6}
+                        /> */}
+
+                    </div>
+                </div >
+            );
+        }
+    }
+    export default App;
+    ReactDOM.render(<App />, document.getElementById("app"));
