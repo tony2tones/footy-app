@@ -51,15 +51,6 @@ class App extends Component {
         });
     }
 
-    Scores = ([response]) => {
-        const teamScores = response.map((teamScore) => 
-            <li>{teamScore}</li>
-        );
-        return (
-            <ul>{teamScores}</ul>
-        )
-    }
-
     componentDidMount() {
 
         if (this.state.teamA != null) {
@@ -88,9 +79,21 @@ class App extends Component {
             });
     };
 
+    Scores = ([response]) => {
+        const teamScores = response.map((teamScore) =>
+            <li>{teamScore}</li>
+        );
+        return (
+            <ul>{teamScores}</ul>
+        )
+    }
+
     //https://apifootball.com/api/?action=get_events&from=2016-10-30&to=2016-11-01&league_id=62&APIkey=xxxxxxxxxxxxxx
 
     render() {
+        
+        // const data = [{ "name": "test1" }, { "name": "test2" }];
+        const listItems = response.map((d) => <li key={d.match_awayteam_name}>{d.match_awayteam_name}</li>);
 
         return (
             <div>
@@ -101,6 +104,7 @@ class App extends Component {
                     <PastResults
                         teamName={[this.state.response]}
                     />
+                   
                 </div>
             </div >
         );

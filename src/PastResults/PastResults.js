@@ -6,12 +6,12 @@ import './PastResults.css';
 const PastResults = (props) => {
     const teamNames = props.teamName;
 {console.log('ola senoir ',teamNames)}
-    const teamScore = teamNames.map((teamName) => {
-        <li>{teamName}</li>
-    });
-    return (
-        <ul>{teamScore}</ul>
-    )
+    // const teamScore = teamNames.map((teamName) => {
+    //     <li>{teamName}</li>
+    // });
+    // return (
+    //     <ul>{teamScore}</ul>
+    // )
 }
 
 
