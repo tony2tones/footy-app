@@ -68,7 +68,7 @@ class App extends Component {
                 this.setState({
                     response: res.body.firstTeam_VS_secondTeam,
                 });
-               
+
             })
             .catch(() => {
 
@@ -78,38 +78,50 @@ class App extends Component {
 
     //https://apifootball.com/api/?action=get_events&from=2016-10-30&to=2016-11-01&league_id=62&APIkey=xxxxxxxxxxxxxx
 
-        render() {
+    render() {
 
-            const teamNameList = this.state.response;
-            
-            let result = Object.keys(teamNameList).map(function(key) {
-                return [Number(key), teamNameList[key]];
-              });
-              let footy = Object.entries(teamNameList);
+        const teamNameList = this.state.response;
 
-              console.log('the footy ', footy);
+        let result = Object.keys(teamNameList).map(function (key) {
+            return [Number(key), teamNameList[key]];
+        });
+        let footy = Object.entries(teamNameList);
 
-            //   const scores = results.map(score => {
-            //       console.log(scores.score);
-            //   })
-                // console.log('this is the team name ' , teamNameList.firstTeam_VS_secondTeam);
-            // })
+        console.log('the footy ', footy);
 
-            return (
-                <div>
-                    <h2>Footy App!</h2>
-                    <div className="vs">
-                        <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
-                        <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
-                        {/* <PastResults
+        var kvArray = [{ key: 1, value: 10 },
+        { key: 2, value: 20 },
+        { key: 3, value: 30 }];
+        // Need to try to implement this solution
+        //  var reformattedArray = kvArray.map(obj =>{ 
+        //     var rObj = {};
+        //     rObj[obj.key] = obj.value;
+        //     return rObj;
+        //  });
+
+
+
+        //   const scores = results.map(score => {
+        //       console.log(scores.score);
+        //   })
+        // console.log('this is the team name ' , teamNameList.firstTeam_VS_secondTeam);
+        // })
+
+        return (
+            <div>
+                <h2>Footy App!</h2>
+                <div className="vs">
+                    <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
+                    <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
+                    {/* <PastResults
                             score={this.state.response.body}
                         /> */}
-                       
 
-                    </div>
-                </div >
-            );
-        }
+
+                </div>
+            </div >
+        );
     }
-    export default App;
-    ReactDOM.render(<App />, document.getElementById("app"));
+}
+export default App;
+ReactDOM.render(<App />, document.getElementById("app"));
