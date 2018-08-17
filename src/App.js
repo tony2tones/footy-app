@@ -65,32 +65,10 @@ class App extends Component {
             .set('accept', 'json')
             .then((res) => {
                 console.log(res.body);
-
                 this.setState({
                     response: res.body.firstTeam_VS_secondTeam,
                 });
-                
-
-                // newTeamStructure.map(function(index,current){
-                //     current.match_hometeam_name = current.teamhome;
-                //     current.match_awayteam_name = current.teamaway;
-                //     console.log('current', current)
-                //     console.log('index', index)
-                // });
-                const homeTeam = newTeamStructure;
-                let teamNameAway = newTeamStructure.map(toast => toast.match_awayteam_name);
-
-
-                let teamNameHome = newTeamStructure.map(toast => toast.match_hometeam_name);
-                console.log('Home team ', teamNameHome[0], ' ', teamNameAway[0]);
-                console.log('Away team ', teamNameAway[1]);
-
-                console.log(newTeamStructure);
-                console.log("match away score ", this.state.response.body.firstTeam_VS_secondTeam[2].match_awayteam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_awayteam_score
-                );
-                console.log("match home score ", this.state.response.body.firstTeam_VS_secondTeam[2].match_hometeam_name, ' ', this.state.response.body.firstTeam_VS_secondTeam[1].match_hometeam_score
-                );
-                // this.mapResults(res.body);
+               
             })
             .catch(() => {
 
@@ -99,43 +77,6 @@ class App extends Component {
     };
 
     //https://apifootball.com/api/?action=get_events&from=2016-10-30&to=2016-11-01&league_id=62&APIkey=xxxxxxxxxxxxxx
-    // mapResults(data) {
-    //     const teamAScore1 = data.firstTeam_VS_secondTeam[0].match_hometeam_score;
-    //     const teamBScore1 = data.firstTeam_VS_secondTeam[0].match_awayteam_score;
-    //     const teamAScore2 = data.firstTeam_VS_secondTeam[1].match_hometeam_score;
-    //     const teamBScore2 = data.firstTeam_VS_secondTeam[1].match_awayteam_score;
-    //     const teamAScore3 = data.firstTeam_VS_secondTeam[2].match_hometeam_score;
-    //     const teamBScore3 = data.firstTeam_VS_secondTeam[2].match_awayteam_score;
-    //     const teamAScore4 = data.firstTeam_VS_secondTeam[3].match_hometeam_score;
-    //     const teamBScore4 = data.firstTeam_VS_secondTeam[3].match_awayteam_score;
-    //     const teamAScore5 = data.firstTeam_VS_secondTeam[4].match_hometeam_score;
-    //     const teamBScore5 = data.firstTeam_VS_secondTeam[4].match_awayteam_score;
-    //     const teamAScore6 = data.firstTeam_VS_secondTeam[5].match_hometeam_score;
-    //     const teamBScore6 = data.firstTeam_VS_secondTeam[5].match_awayteam_score;
-    //     this.setState({
-    //         teamBScore1: teamBScore1,
-    //         teamAScore1: teamAScore1,
-    //         teamBScore2: teamBScore2,
-    //         teamAScore2: teamAScore2,
-    //         teamBScore3: teamBScore3,
-    //         teamAScore3: teamAScore3,
-    //         teamBScore4: teamBScore4,
-    //         teamAScore4: teamAScore4,
-    //         teamBScore5: teamBScore5,
-    //         teamAScore5: teamAScore5,
-    //         teamBScore6: teamBScore6,
-    //         teamAScore6: teamAScore6
-    //     })
-    // }
-
-    // teamName() {
-    //     const team = newTeamStructure.map((index, current) => {
-    //         current.match_hometeam_name = current.teamhome;
-    //         current.match_awayteam_name = current.teamaway;
-    //         console.log('current', current)
-    //         console.log('index', index)
-    //     });
-    // }
 
         render() {
 
@@ -144,8 +85,13 @@ class App extends Component {
             let result = Object.keys(teamNameList).map(function(key) {
                 return [Number(key), teamNameList[key]];
               });
-              
-              console.info(result[1]);
+              let footy = Object.entries(teamNameList);
+
+              console.log('the footy ', footy);
+
+            //   const scores = results.map(score => {
+            //       console.log(scores.score);
+            //   })
                 // console.log('this is the team name ' , teamNameList.firstTeam_VS_secondTeam);
             // })
 
