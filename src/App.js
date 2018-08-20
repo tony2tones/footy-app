@@ -66,7 +66,7 @@ class App extends Component {
             .then((res) => {
                 console.log(res.body);
                 this.setState({
-                    response: res.body.firstTeam_VS_secondTeam,
+                    response: res.body,
                 });
 
             })
@@ -80,32 +80,15 @@ class App extends Component {
 
     render() {
 
+        
+
         const teamNameList = this.state.response;
-
-        let result = Object.keys(teamNameList).map(function (key) {
-            return [Number(key), teamNameList[key]];
-        });
-        let footy = Object.entries(teamNameList);
-
-        console.log('the footy ', footy);
-
-        var kvArray = [{ key: 1, value: 10 },
-        { key: 2, value: 20 },
-        { key: 3, value: 30 }];
-        // Need to try to implement this solution
-        //  var reformattedArray = kvArray.map(obj =>{ 
-        //     var rObj = {};
-        //     rObj[obj.key] = obj.value;
-        //     return rObj;
-        //  });
-
-
-
-        //   const scores = results.map(score => {
-        //       console.log(scores.score);
-        //   })
-        // console.log('this is the team name ' , teamNameList.firstTeam_VS_secondTeam);
+        // teamNameList.map(function(d, index) {
+            
+        //     console.log(d.teamNameList[0].match_awayteam_score);
         // })
+        // console.log('this is the team name ', teamNameList.firstTeam_VS_secondTeam);
+
 
         return (
             <div>
@@ -113,9 +96,9 @@ class App extends Component {
                 <div className="vs">
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
-                    {/* <PastResults
-                            score={this.state.response.body}
-                        /> */}
+                    <PastResults
+                            score={this.state.response}
+                        />
 
 
                 </div>
