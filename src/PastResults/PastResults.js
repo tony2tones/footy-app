@@ -1,37 +1,21 @@
 import React from 'react';
+import "babel-polyfill";
 
 import './PastResults.css';
 
-const PastResults = (props) => {
-    console.log('this is what you passed: ',props);
-    console.log(Object.keys(props));
+const PastResults = (props) => {  
+            // props.forEach((toast) => {
+            //     console.log(toast.match_id)
+            // })
+            console.log('this is whats passing ',props);
 
-    // const teamScores = props.map((teamScore)=> {
-        let mapped = Object.keys(props.score).map(key => {
-            props[key]
-        });
-        console.log('this is what mapp is ', mapped);
-
-        for (let x = 0; x < temp1.length; ++x) {
-            console.log(temp1[x].match_id);
-
-            temp1.forEach((toast) => {
-                console.log(toast.match_id)
-            })
-
-            for (const toast of temp1) {
-                console.log(toast.match_id)
+            for (let [key, value] of Object.entries(props)){
+                console.log('this is the key and value ',key, value);
               }
-    // let data = props.score;
-    // console.log('this is how long this data is',props.score.length)
-    // for (var j = 0; j < props.length; j++){
-    //     console.log(data[j].match_awayteam_name);
-    //   }
-    // let key = Object.keys(data);
-    //   for (let keys of key) {
-    //     console.log(keys, data[keys]); // Will display contents of the object inside the array
-    // }
-    // })
+            for (const toast in props) {
+                console.log('this isnt defined is it? ', toast);
+              }
+   
     return (
         <div>
             </div>

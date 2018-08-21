@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import request from "superagent";
 
+
 import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
 import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
 import PastResults from "./PastResults/PastResults";
@@ -25,16 +26,6 @@ class App extends Component {
                 teamB: 'Liverpool',
                 teamAScore1: '',
                 teamBScore1: '',
-                teamAScore2: '',
-                teamBScore2: '',
-                teamAScore3: '',
-                teamBScore3: '',
-                teamAScore4: '',
-                teamBScore4: '',
-                teamAScore5: '',
-                teamBScore5: '',
-                teamAScore6: '',
-                teamBScore6: '',
                 response: [],
             }
         }
@@ -81,7 +72,12 @@ class App extends Component {
     render() {
 
         const teamNameList = this.state.response;
-
+        for (const toast in teamNameList.firstTeam_VS_secondTeam) {
+            console.log('this isnt defined is it? ', toast);
+          }
+        // for (const match of teamNameList) {
+        //     console.log('watch match id', match);
+        //   }
         // let i = 0;
         
         // for(i ; i < teamNameList.length,i++;) {
@@ -101,10 +97,8 @@ class App extends Component {
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
                     <PastResults
-                        score={this.state.response}
+                        score={this.state.response.firstTeam_VS_secondTeam}
                     />
-
-
                 </div>
             </div >
         );
