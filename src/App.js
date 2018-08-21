@@ -26,7 +26,7 @@ class App extends Component {
                 teamB: 'Liverpool',
                 teamAScore1: '',
                 teamBScore1: '',
-                response: [],
+                response: '',
             }
         }
     }
@@ -72,9 +72,17 @@ class App extends Component {
     render() {
 
         const teamNameList = this.state.response;
-        for (const toast in teamNameList.firstTeam_VS_secondTeam) {
-            console.log('this isnt defined is it? ', toast);
-          }
+        // console.log('this is the state response ',this.state.response);
+        // var teamNameList = this.state.response;
+
+        var firstTeamVsSecondTeam = teamNameList.firstTeam_VS_secondTeam || [];
+        firstTeamVsSecondTeam.map(matchDetails => {
+            console.log(matchDetails);
+        });
+
+        // for (const toast in teamNameList.firstTeam_VS_secondTeam) {
+        //     console.log('what is the toast? ', toast);
+        //   }
         // for (const match of teamNameList) {
         //     console.log('watch match id', match);
         //   }

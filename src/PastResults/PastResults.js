@@ -7,14 +7,14 @@ const PastResults = (props) => {
             // props.forEach((toast) => {
             //     console.log(toast.match_id)
             // })
-            console.log('this is whats passing ',props);
+            // console.log('this is whats passing ',props);
 
-            for (let [key, value] of Object.entries(props)){
-                console.log('this is the key and value ',key, value);
-              }
-            for (const toast in props) {
-                console.log('this isnt defined is it? ', toast);
-              }
+            // for (let [key, value] of Object.entries(props)){
+            //     console.log('this is the key and value ',key, value);
+            //   }
+            // for (const toast in props) {
+            //     console.log('this isnt defined is it? ', toast);
+            //   }
    
     return (
         <div>
