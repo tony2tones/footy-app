@@ -71,16 +71,6 @@ class App extends Component {
 
     render() {
 
-        const teamNameList = this.state.response;
-        // console.log('this is the state response ',this.state.response);
-        // var teamNameList = this.state.response;
-
-        var firstTeamVsSecondTeam = teamNameList.firstTeam_VS_secondTeam || [];
-        firstTeamVsSecondTeam.map(matchDetails => {
-            console.log(matchDetails.match_awayteam_name);
-            console.log(matchDetails.match_awayteam_score);
-        });
-
         return (
             <div>
                 <h2>Footy App!</h2>
