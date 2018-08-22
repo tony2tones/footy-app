@@ -4,7 +4,11 @@ import "babel-polyfill";
 import './PastResults.css';
 
 const PastResults = (props) => {  
-         
+    var firstTeamVsSecondTeam = props.teamNameList.firstTeam_VS_secondTeam || [];
+        firstTeamVsSecondTeam.map(matchDetails => {
+            console.log(matchDetails.match_awayteam_name);
+            console.log(matchDetails.match_awayteam_score);
+        });
    
     return (
         <div>

@@ -81,24 +81,6 @@ class App extends Component {
             console.log(matchDetails.match_awayteam_score);
         });
 
-        // for (const toast in teamNameList.firstTeam_VS_secondTeam) {
-        //     console.log('what is the toast? ', toast);
-        //   }
-        // for (const match of teamNameList) {
-        //     console.log('watch match id', match);
-        //   }
-        // let i = 0;
-        
-        // for(i ; i < teamNameList.length,i++;) {
-        //     console.log(`obj.${prop} = ${obj[prop]}`)
-        // }
-        // teamNameList.map(function(d, index) {
-
-        //     console.log(d.teamNameList[0].match_awayteam_score);
-        // })
-        // console.log('this is the team name ', teamNameList.firstTeam_VS_secondTeam);
-
-
         return (
             <div>
                 <h2>Footy App!</h2>
@@ -106,7 +88,7 @@ class App extends Component {
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
                     <PastResults
-                        score={this.state.response.firstTeam_VS_secondTeam}
+                        teamNameList={this.state.response}
                     />
                 </div>
             </div >
