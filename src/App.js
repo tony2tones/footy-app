@@ -6,6 +6,7 @@ import request from "superagent";
 import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
 import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
 import AwayTeam from './AwayTeam/AwayTeam';
+import HomeTeam from './HomeTeam/HomeTeam';
 import Score from './Score/Score';
 
 import './App.css';
@@ -80,6 +81,10 @@ class App extends Component {
                     <AwayTeam
                         teamNameList={this.state.response}
                     />
+                    <HomeTeam
+                        teamNameList={this.state.response}
+                    />
+
                 </div>
             </div >
         );

@@ -1,9 +1,8 @@
 import React from 'react';
-import "babel-polyfill";
 
-import './AwayTeam.css';
+import './HomeTeam.css';
 
-const AwayTeam = (props) => {
+const HomeTeam = (props) => {
     var firstTeamVsSecondTeam = props.teamNameList.firstTeam_VS_secondTeam || [];
     const matchDetailsList = firstTeamVsSecondTeam.map(matchDetails => {
         return (
@@ -22,5 +21,5 @@ const AwayTeam = (props) => {
     )
 }
 
-export default AwayTeam;
+export default HomeTeam;
 
