@@ -77,7 +77,8 @@ class App extends Component {
 
         var firstTeamVsSecondTeam = teamNameList.firstTeam_VS_secondTeam || [];
         firstTeamVsSecondTeam.map(matchDetails => {
-            console.log(matchDetails);
+            console.log(matchDetails.match_awayteam_name);
+            console.log(matchDetails.match_awayteam_score);
         });
 
         // for (const toast in teamNameList.firstTeam_VS_secondTeam) {
