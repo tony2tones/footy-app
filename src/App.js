@@ -5,7 +5,7 @@ import request from "superagent";
 
 import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
 import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
-import PastResults from "./PastResults/PastResults";
+import AwayTeam from './AwayTeam/AwayTeam';
 import Score from './Score/Score';
 
 import './App.css';
@@ -77,7 +77,7 @@ class App extends Component {
                 <div className="vs">
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
-                    <PastResults
+                    <AwayTeam
                         teamNameList={this.state.response}
                     />
                 </div>
