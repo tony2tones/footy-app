@@ -7,7 +7,7 @@ import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
 import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
 import AwayTeam from './AwayTeam/AwayTeam';
 import HomeTeam from './HomeTeam/HomeTeam';
-import Score from './Score/Score';
+import Date from './Date/Date';
 
 import './App.css';
 
@@ -75,6 +75,7 @@ class App extends Component {
                 <h2>Footy App!</h2>
 
                 <div className="vs">
+                    <Date />
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
                     <AwayTeam
@@ -83,10 +84,9 @@ class App extends Component {
                     <HomeTeam
                         teamNameList={this.state.response}
                     />
-                    <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
                 </div>
                 <br />
-
+                <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
             </div >
         );
     }
