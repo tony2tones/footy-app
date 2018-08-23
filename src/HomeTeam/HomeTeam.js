@@ -9,6 +9,7 @@ const HomeTeam = (props) => {
             <div>
                 <div>{matchDetails.match_hometeam_name}</div>
                 <div>{matchDetails.match_hometeam_score}</div>
+                <div>{matchDetails.match_date}</div>
             </div>
         )
     });

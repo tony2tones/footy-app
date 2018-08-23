@@ -75,6 +75,7 @@ class App extends Component {
         return (
             <div>
                 <h2>Footy App!</h2>
+                <button className="buttonStyle" onClick={this.hToH}></button>
                 <div className="vs">
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
@@ -84,7 +85,7 @@ class App extends Component {
                     <HomeTeam
                         teamNameList={this.state.response}
                     />
-
+                    
                 </div>
             </div >
         );
