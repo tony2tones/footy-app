@@ -25,8 +25,6 @@ class App extends Component {
             this.state = {
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
-                teamAScore1: '',
-                teamBScore1: '',
                 response: '',
             }
         }
@@ -75,7 +73,7 @@ class App extends Component {
         return (
             <div>
                 <h2>Footy App!</h2>
-                <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}></button>
+
                 <div className="vs">
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
@@ -85,8 +83,10 @@ class App extends Component {
                     <HomeTeam
                         teamNameList={this.state.response}
                     />
-
+                    <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
                 </div>
+                <br />
+
             </div >
         );
     }
