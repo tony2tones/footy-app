@@ -5,6 +5,15 @@
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 30px;
     text-align: center;
+    margin: 30px;
+  }
+  .vss {
+    display: grid;
+    position: relative;
+    height: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 30px;
+    text-align: center;
   }
 
   .buttonStyle {

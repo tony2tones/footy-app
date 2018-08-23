@@ -74,10 +74,13 @@ class App extends Component {
             <div>
                 <h2>Footy App!</h2>
 
-                <div className="vs">
-                    <Date />
+                <div className="vss">
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
+                    <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
+                </div>
+                <div className="vs" >
+                    <Date teamNameList={this.state.response} />
                     <AwayTeam
                         teamNameList={this.state.response}
                     />
@@ -86,7 +89,7 @@ class App extends Component {
                     />
                 </div>
                 <br />
-                <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
+
             </div >
         );
     }

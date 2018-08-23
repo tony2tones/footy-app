@@ -7,6 +7,7 @@ const HomeTeam = (props) => {
     const matchDetailsList = firstTeamVsSecondTeam.map(matchDetails => {
         return (
             <div>
+                
                 <div>{matchDetails.match_hometeam_name}</div>
                 <div>{matchDetails.match_hometeam_score}</div>
             </div>
@@ -16,6 +17,7 @@ const HomeTeam = (props) => {
     return (
 
         <div>
+            <h2> Home </h2>
             {matchDetailsList}
         </div>
     )
