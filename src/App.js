@@ -28,7 +28,7 @@ class App extends Component {
                 teamB: 'Liverpool',
                 response: '',
                 listOpen: false,
-                headerTitle: this.props.name,
+                headerName: this.props.name,
                 team: [
                     {
                         id: 0,
@@ -82,12 +82,18 @@ class App extends Component {
         });
     }
 
-    handleClickOutside(){
+    handleClickOutside() {
         this.setState({
-          listOpen: false
+            listOpen: false
         })
-      }
-      
+    }
+
+    toggleList() {
+        this.setState(prevState => ({
+            listOpen: !prevState.listOpen
+        }))
+    }
+
     componentDidMount() {
 
         if (this.state.teamA != null) {
@@ -118,9 +124,26 @@ class App extends Component {
 
     render() {
 
+        const { list } = this.props
+        const { listOpen, headerName } = this.state
+
         return (
             <div>
                 <h2>Footy App!</h2>
+                <div className="dd-wrapper">
+                    <div className="dd-header" onClick={() => this.toggleList()}>
+                        <div className="dd-header-name">{headerName}</div>
+                        {listOpen
+                            ? <FontAwesome name="angle-up" size="2x" />
+                            : <FontAwesome name="angle-down" size="2x" />
+                        }
+                    </div>
+                    {listOpen && <ul className="dd-list">
+                        {list.map((item) => (
+                            <li className="dd-list-item" key={item.id} >{item.name}</li>
+                        ))}
+                    </ul>}
+                </div>
                 <Dropdown
                     title="Select Team"
                     list={this.state.location}
@@ -141,8 +164,6 @@ class App extends Component {
                     />
                 </div>
                 <br />
-
-
             </div >
         );
     }
