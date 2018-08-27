@@ -26,6 +26,44 @@ class App extends Component {
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
                 response: '',
+                team: [
+                    {
+                        id: 0,
+                        name: 'Chelsea',
+                        selected: false,
+                        key: 'location'
+                    },
+                    {
+                        id: 1,
+                        name: 'Liverpool',
+                        selected: false,
+                        key: 'location'
+                    },
+                    {
+                        id: 2,
+                        name: 'Watford',
+                        selected: false,
+                        key: 'location'
+                    },
+                    {
+                        id: 3,
+                        name: 'Newcastle',
+                        selected: false,
+                        key: 'location'
+                    },
+                    {
+                        id: 4,
+                        name: 'Manchester City',
+                        selected: false,
+                        key: 'location'
+                    },
+                    {
+                        id: 5,
+                        name: 'Manchester United',
+                        selected: false,
+                        key: 'location'
+                    }
+                ]
             }
         }
     }
