@@ -39,6 +39,7 @@
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.26.0",
     "babel-preset-es2016": "^6.24.1",
+    "react-onclickoutside": "^6.7.1",
     "superagent": "^3.8.3"
   }
 }

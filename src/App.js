@@ -8,6 +8,7 @@ import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
 import AwayTeam from './AwayTeam/AwayTeam';
 import HomeTeam from './HomeTeam/HomeTeam';
 import Date from './Date/Date';
+import Dropdown from './Dropdown/Dropdown';
 
 import './App.css';
 
@@ -26,6 +27,8 @@ class App extends Component {
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
                 response: '',
+                listOpen: false,
+                headerTitle: this.props.name,
                 team: [
                     {
                         id: 0,
@@ -78,6 +81,13 @@ class App extends Component {
             teamB: event.target.value
         });
     }
+
+    handleClickOutside(){
+        this.setState({
+          listOpen: false
+        })
+      }
+      
     componentDidMount() {
 
         if (this.state.teamA != null) {
@@ -111,6 +121,10 @@ class App extends Component {
         return (
             <div>
                 <h2>Footy App!</h2>
+                <Dropdown
+                    title="Select Team"
+                    list={this.state.location}
+                />
 
                 <div className="vss">
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
@@ -127,6 +141,7 @@ class App extends Component {
                     />
                 </div>
                 <br />
+
 
             </div >
         );
