@@ -4,10 +4,9 @@ import './HomeTeam.css';
 
 const HomeTeam = (props) => {
     var firstTeamVsSecondTeam = props.teamNameList.firstTeam_VS_secondTeam || [];
-    const matchDetailsList = firstTeamVsSecondTeam.map(matchDetails => {
+    const matchDetailsList = firstTeamVsSecondTeam.map((matchDetails, index) => {
         return (
-            <div>
-                
+            <div key={index}>
                 <div>{matchDetails.match_hometeam_name}</div>
                 <div>{matchDetails.match_hometeam_score}</div>
             </div>
@@ -15,7 +14,6 @@ const HomeTeam = (props) => {
     });
 
     return (
-
         <div>
             <h2> Home </h2>
             {matchDetailsList}
