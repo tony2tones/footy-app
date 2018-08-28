@@ -8,7 +8,6 @@ import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
 import AwayTeam from './AwayTeam/AwayTeam';
 import HomeTeam from './HomeTeam/HomeTeam';
 import Date from './Date/Date';
-// import Dropdown from './Dropdown/Dropdown';
 
 import './App.css';
 
@@ -82,7 +81,6 @@ class App extends Component {
         });
     }
 
-
     toggleList() {
         this.setState(prevState => ({
             listOpen: !prevState.listOpen
@@ -128,7 +126,9 @@ class App extends Component {
                     <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
                 </div>
                 <div className="vs" >
-                    <Date teamNameList={this.state.response} />
+                    <Date
+                        teamNameList={this.state.response}
+                    />
                     <AwayTeam
                         teamNameList={this.state.response}
                     />
