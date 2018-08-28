@@ -8,7 +8,7 @@ const AwayTeam = (props) => {
     const matchDetailsList = firstTeamVsSecondTeam.map((matchDetails, index) => {
         return (
             <div key={index}>
-                <div>{matchDetails.match_awayteam_name}</div>
+                <div className="nameStyling">{matchDetails.match_awayteam_name}</div>
                 <div>{matchDetails.match_awayteam_score}</div>
             </div>
         )
