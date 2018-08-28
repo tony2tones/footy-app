@@ -8,7 +8,7 @@ import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
 import AwayTeam from './AwayTeam/AwayTeam';
 import HomeTeam from './HomeTeam/HomeTeam';
 import Date from './Date/Date';
-import Dropdown from './Dropdown/Dropdown';
+// import Dropdown from './Dropdown/Dropdown';
 
 import './App.css';
 
@@ -82,11 +82,6 @@ class App extends Component {
         });
     }
 
-    handleClickOutside() {
-        this.setState({
-            listOpen: false
-        })
-    }
 
     toggleList() {
         this.setState(prevState => ({
@@ -124,31 +119,9 @@ class App extends Component {
 
     render() {
 
-        const { list } = this.props
-        const { listOpen, headerName } = this.state
-
         return (
             <div>
                 <h2>Footy App!</h2>
-                <div className="dd-wrapper">
-                    <div className="dd-header" onClick={() => this.toggleList()}>
-                        <div className="dd-header-name">{headerName}</div>
-                        {listOpen
-                            ? <FontAwesome name="angle-up" size="2x" />
-                            : <FontAwesome name="angle-down" size="2x" />
-                        }
-                    </div>
-                    {listOpen && <ul className="dd-list">
-                        {list.map((item) => (
-                            <li className="dd-list-item" key={item.id} >{item.name}</li>
-                        ))}
-                    </ul>}
-                </div>
-                <Dropdown
-                    title="Select Team"
-                    list={this.state.location}
-                />
-
                 <div className="vss">
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
