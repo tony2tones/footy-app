@@ -11,7 +11,8 @@
     padding-bottom:5px;
 }
 .panel {
-  background-color: cadetblue;
+  background-color: rgba(38, 44, 92, 0.726);
+  height: 500px;
 }
 .item {
   flex-direction: column;
