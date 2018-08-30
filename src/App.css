@@ -1,26 +1,28 @@
-.vs {
-    display: grid;
-    position: relative;
-    height: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 30px;
-    text-align: center;
-    margin: 30px;
-    
-  }
-  .vss {
-    display: grid;
-    position: relative;
-    height: 20px;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 30px;
-    text-align: center;
-  }
+.wrapper{
+  position: fixed;
+  width: 95%;
+  height: 82%;
+  display: flex;
+  padding-left:500px;
+}
+.container {
+    display: flex; /* or inline-flex */
+    justify-content: space-around;
+    padding-bottom:5px;
+}
+.panel {
+  background-color: cadetblue;
+}
+.item {
+  flex-direction: column;
+   flex-basis: auto; /* default auto */
+}
 
-  .buttonStyle {
+.buttonStyle {
     background-color: #e7e7e7;
      color: black;
-  }
+}
+
   .width {
     width: 500px;
   }

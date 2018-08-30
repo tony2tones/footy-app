@@ -118,25 +118,30 @@ class App extends Component {
     render() {
 
         return (
-            <div className="width">
-                <h2>Footy App!</h2>
-                <div className="vss">
-                    <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
-                    <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
-                    <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
+            <div>
+                <div className="wrapper">
+                    <div className="width">
+                        <h2>Footy App!</h2>
+                        <div className="container">
+                            <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
+                            <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
+                            <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
+                        </div>
+                        <div className="panel">
+                            <div className="container">
+                                <Date
+                                    teamNameList={this.state.response}
+                                />
+                                <AwayTeam
+                                    teamNameList={this.state.response}
+                                />
+                                <HomeTeam
+                                    teamNameList={this.state.response}
+                                />
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div className="vs" >
-                    <Date
-                        teamNameList={this.state.response}
-                    />
-                    <AwayTeam
-                        teamNameList={this.state.response}
-                    />
-                    <HomeTeam
-                        teamNameList={this.state.response}
-                    />
-                </div>
-                <br />
             </div >
         );
     }
