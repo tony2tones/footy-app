@@ -5,9 +5,11 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 100px;
     text-align: center;
+    background-color: rgb(63, 63, 185);
   }
 
   .nameStyling{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 20px;
+    color: rgb(109, 109, 109);
   }
