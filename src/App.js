@@ -23,6 +23,8 @@ class App extends Component {
     constructor(props) {
         super(props); {
             this.state = {
+                isLoading: true,
+                showResults: false,
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
                 response: '',
@@ -104,6 +106,8 @@ class App extends Component {
                 console.log(res.body);
                 this.setState({
                     response: res.body,
+                    isLoading: false,
+                    showResults: true
                 });
 
             })
@@ -116,6 +120,10 @@ class App extends Component {
     //https://apifootball.com/api/?action=get_events&from=2016-10-30&to=2016-11-01&league_id=62&APIkey=xxxxxxxxxxxxxx
 
     render() {
+        const {
+            isLoading,
+            showResults
+        } = this.state;
 
         return (
             <div>
@@ -128,17 +136,20 @@ class App extends Component {
                             <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
                         </div>
                         <div className="panel">
-                            <div className="container">
-                                <Date
-                                    teamNameList={this.state.response}
-                                />
-                                <AwayTeam
-                                    teamNameList={this.state.response}
-                                />
-                                <HomeTeam
-                                    teamNameList={this.state.response}
-                                />
-                            </div>
+                            {isLoading && <div className="loader" />}
+                            {showResults &&
+                                <div className="container">
+                                    <Date
+                                        teamNameList={this.state.response}
+                                    />
+                                    <AwayTeam
+                                        teamNameList={this.state.response}
+                                    />
+                                    <HomeTeam
+                                        teamNameList={this.state.response}
+                                    />
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
