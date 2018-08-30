@@ -118,7 +118,7 @@ class App extends Component {
     render() {
 
         return (
-            <div>
+            <div className="width">
                 <h2>Footy App!</h2>
                 <div className="vss">
                     <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
