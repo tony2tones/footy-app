@@ -99,6 +99,7 @@ class App extends Component {
     }
 
     hToH(teamB, teamA) {
+        
         request
             .get(`https://apifootball.com/api/?action=get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
             .set('accept', 'json')
