@@ -124,7 +124,11 @@ class App extends Component {
         return (
             <div>
                 <div className="wrapper">
-                    <History />
+                    <History 
+                        hToH={this.hToH}
+                        homeTeamChange={this.homeTeamChange}
+                        AwayTeamChange={this.AwayTeamChange}
+                    />
                     <TodaysMatch />
                 </div>
             </div>
