@@ -79,12 +79,6 @@ class App extends Component {
         });
     }
 
-    toggleList() {
-        this.setState(prevState => ({
-            listOpen: !prevState.listOpen
-        }))
-    }
-
     componentDidMount() {
 
         if (this.state.teamA != null) {
@@ -102,8 +96,8 @@ class App extends Component {
                 console.log(res.body);
                 this.setState({
                     response: res.body,
-                    isLoading: false,
-                    showResults: true
+                    // isLoading: false,
+                    // showResults: true
                 });
 
             })
@@ -116,18 +110,18 @@ class App extends Component {
     //https://apifootball.com/api/?action=get_events&from=2016-10-30&to=2016-11-01&league_id=62&APIkey=xxxxxxxxxxxxxx
 
     render() {
-        const {
-            isLoading,
-            showResults
-        } = this.state;
+        // const {
+        //     isLoading,
+        //     showResults
+        // } = this.state;
 
         return (
             <div>
                 <div className="wrapper">
                     <History 
-                        hToH={this.hToH}
-                        homeTeamChange={this.homeTeamChange}
-                        AwayTeamChange={this.AwayTeamChange}
+                        hToH={()=> {this.hToH(this.state.teamA,this.state.teamB)}}
+                        homeTeamChange={()=>{this.homeTeamChange(event)}}
+                        AwayTeamChange={()=>{this.AwayTeamChange(event)}}
                     />
                     <TodaysMatch />
                 </div>
