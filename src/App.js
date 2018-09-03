@@ -118,10 +118,11 @@ class App extends Component {
         return (
             <div>
                 <div className="wrapper">
-                    <History 
-                        hToH={()=> {this.hToH(this.state.teamA,this.state.teamB)}}
-                        homeTeamChange={()=>{this.homeTeamChange(event)}}
-                        AwayTeamChange={()=>{this.AwayTeamChange(event)}}
+                    <History
+                        hToH={() => { this.hToH(this.state.teamA, this.state.teamB) }}
+                        homeTeamChange={() => { this.homeTeamChange(event) }}
+                        AwayTeamChange={() => { this.AwayTeamChange(event) }}
+                        teamNameList={this.state.response}
                     />
                     <TodaysMatch />
                 </div>
