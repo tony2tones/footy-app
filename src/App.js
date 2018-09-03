@@ -2,12 +2,8 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import request from "superagent";
 
-
-import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
-import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
-import AwayTeam from './AwayTeam/AwayTeam';
-import HomeTeam from './HomeTeam/HomeTeam';
-import Date from './Date/Date';
+import History from './History/History';
+import TodaysMatch from './TodaysMatch/TodaysMatch';
 
 import './App.css';
 
@@ -128,32 +124,10 @@ class App extends Component {
         return (
             <div>
                 <div className="wrapper">
-                    <div className="width">
-                        <h2>Footy App!</h2>
-                        <div className="container">
-                            <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
-                            <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
-                            <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
-                        </div>
-                        <div className="panel">
-                            {isLoading && <div className="loader" />}
-                            {showResults &&
-                                <div className="container">
-                                    <Date
-                                        teamNameList={this.state.response}
-                                    />
-                                    <AwayTeam
-                                        teamNameList={this.state.response}
-                                    />
-                                    <HomeTeam
-                                        teamNameList={this.state.response}
-                                    />
-                                </div>
-                            }
-                        </div>
-                    </div>
+                    <History />
+                    <TodaysMatch />
                 </div>
-            </div >
+            </div>
         );
     }
 }
