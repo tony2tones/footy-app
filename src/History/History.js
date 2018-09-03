@@ -13,7 +13,7 @@ const History = (props) => {
             <div className="container">
                 <HomeTeamInput changed={props.homeTeamChange.bind(this)} homeTeam={props.teamA} />
                 <AwayTeamInput changed={props.AwayTeamChange.bind(this)} awayTeam={props.teamB} />
-                <button className="buttonStyle" onClick={() => props.hToH(props.teamA, props.teamB)}>Search Past Results</button>
+                <button className="buttonStyle" onClick={() => props.hToH(teamA, props.teamB)}>Search Past Results</button>
             </div>
             <div className="panel">
                 <div className="container">

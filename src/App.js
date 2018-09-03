@@ -83,6 +83,7 @@ class App extends Component {
 
         if (this.state.teamA != null) {
             this.hToH(this.state.teamA, this.state.teamB);
+
         } else {
             console.log('this has failed');
         }
@@ -120,8 +121,8 @@ class App extends Component {
                 <div className="wrapper">
                     <History
                         hToH={() => { this.hToH(this.state.teamA, this.state.teamB) }}
-                        homeTeamChange={() => { this.homeTeamChange(event) }}
-                        AwayTeamChange={() => { this.AwayTeamChange(event) }}
+                        homeTeamChange={() => { this.homeTeamChange.bind(this) }}
+                        AwayTeamChange={() => { this.AwayTeamChange.bind(this) }}
                         teamNameList={this.state.response}
                     />
                     <TodaysMatch />
