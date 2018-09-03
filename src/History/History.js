@@ -17,18 +17,16 @@ const History = (props) => {
             </div>
             <div className="panel">
                 <div className="container">
-                    {/* {/* <Date
-                        teamNameList={props.response}
-                    /> */}
+                    <Date
+                        teamNameList={props.teamNameList}
+                    />
                     <AwayTeam
                         teamNameList={props.teamNameList}
                     />
-                    {/*
                     <HomeTeam
-                        teamNameList={props.response}
-                    /> */}
+                        teamNameList={props.teamNameList}
+                    />
                 </div>
-                }
             </div>
         </div>
     )
