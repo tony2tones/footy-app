@@ -127,33 +127,18 @@ class App extends Component {
         } = this.state;
 
         return (
-            <div>
-                <div className="wrapper">
-                    <div className="width">
-                        <h2>Footy App!</h2>
-                        <div className="container">
-                            <HomeTeamInput changed={this.homeTeamChange.bind(this)} homeTeam={this.state.teamA} />
-                            <AwayTeamInput changed={this.AwayTeamChange.bind(this)} awayTeam={this.state.teamB} />
-                            <button className="buttonStyle" onClick={() => this.hToH(this.state.teamA, this.state.teamB)}>Search Past Results</button>
-                        </div>
-                        <div className="panel">
-                            {isLoading && <div className="loader" />}
-                            {showResults &&
-                                <div className="container">
-                                    <Date
-                                        teamNameList={this.state.response}
-                                    />
-                                    <AwayTeam
-                                        teamNameList={this.state.response}
-                                    />
-                                    <HomeTeam
-                                        teamNameList={this.state.response}
-                                    />
-                                </div>
-                            }
-                        </div>
-                    </div>
-                </div>
+            <div className="Blog">
+                <header>
+                    <nav>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/history">Previous Games</a></li>
+                        </ul>
+                    </nav>
+                </header>
+                <section className="Posts">
+                    {posts}
+                </section>
             </div >
         );
     }
