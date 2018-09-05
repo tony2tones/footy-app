@@ -3,11 +3,6 @@ import ReactDOM from "react-dom";
 import request from "superagent";
 
 import FootyApp from './FootyApp/footyApp';
-import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
-import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
-import AwayTeam from './AwayTeam/AwayTeam';
-import HomeTeam from './HomeTeam/HomeTeam';
-import Date from './Date/Date';
 
 import './App.css';
 
