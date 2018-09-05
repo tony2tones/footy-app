@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import request from "superagent";
 
-
+import FootyApp from './FootyApp/footyApp';
 import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
 import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
 import AwayTeam from './AwayTeam/AwayTeam';
@@ -128,17 +128,7 @@ class App extends Component {
 
         return (
             <div className="Blog">
-                <header>
-                    <nav>
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/history">Previous Games</a></li>
-                        </ul>
-                    </nav>
-                </header>
-                <section className="Posts">
-                    {posts}
-                </section>
+               <FootyApp />
             </div >
         );
     }
