@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
+import './Components/history';
+
 class FootyApp extends Component {
-    Render() {
+    render() {
         return (
             <div className="Blog">
                 <header>
@@ -13,7 +15,7 @@ class FootyApp extends Component {
                     </nav>
                 </header>
                 <section className="Posts">
-                    {posts}
+                    <History />
                 </section>
             </div>
         );

@@ -6,7 +6,7 @@ import AwayTeam from './AwayTeam/AwayTeam';
 import HomeTeam from './HomeTeam/HomeTeam';
 import Date from './Date/Date';
 
-const History = (props) => {
+const History = () => {
 
     return(
         <div>
