@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import request from "superagent";
+import { BrowserRouter } from "react-router-dom";
 
 import History from './History/History';
 import TodaysMatch from './TodaysMatch/TodaysMatch';
@@ -79,7 +80,9 @@ class App extends Component {
 
         return (
             <div>
-                <Blog />
+                <BrowserRouter>
+                    <Blog />
+                </BrowserRouter>
             </div>
         );
     }
