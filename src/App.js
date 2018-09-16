@@ -4,6 +4,7 @@ import request from "superagent";
 
 import History from './History/History';
 import TodaysMatch from './TodaysMatch/TodaysMatch';
+import Blog from './Blog/Blog';
 
 import './App.css';
 
@@ -23,47 +24,7 @@ class App extends Component {
                 showResults: false,
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
-                response: '',
-                listOpen: false,
-                headerName: this.props.name,
-                team: [
-                    {
-                        id: 0,
-                        name: 'Chelsea',
-                        selected: false,
-                        key: 'location'
-                    },
-                    {
-                        id: 1,
-                        name: 'Liverpool',
-                        selected: false,
-                        key: 'location'
-                    },
-                    {
-                        id: 2,
-                        name: 'Watford',
-                        selected: false,
-                        key: 'location'
-                    },
-                    {
-                        id: 3,
-                        name: 'Newcastle',
-                        selected: false,
-                        key: 'location'
-                    },
-                    {
-                        id: 4,
-                        name: 'Manchester City',
-                        selected: false,
-                        key: 'location'
-                    },
-                    {
-                        id: 5,
-                        name: 'Manchester United',
-                        selected: false,
-                        key: 'location'
-                    }
-                ]
+
             }
         }
     }
@@ -118,15 +79,14 @@ class App extends Component {
 
         return (
             <div>
-                <div className="wrapper">
-                    <History
-                        hToH={() => { this.hToH(this.state.teamA, this.state.teamB) }}
-                        homeTeamChange={() => { this.homeTeamChange.bind(this) }}
-                        AwayTeamChange={() => { this.AwayTeamChange.bind(this) }}
-                        teamNameList={this.state.response}
-                    />
-                    <TodaysMatch />
-                </div>
+                <header>
+                    <nav>
+                        <ul>
+                            <li><a href="/"></a></li>
+                            <li><a href="/"></a></li>
+                        </ul>
+                    </nav>
+                </header>
             </div>
         );
     }
