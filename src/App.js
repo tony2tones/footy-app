@@ -79,14 +79,7 @@ class App extends Component {
 
         return (
             <div>
-                <header>
-                    <nav>
-                        <ul>
-                            <li><a href="/"></a></li>
-                            <li><a href="/"></a></li>
-                        </ul>
-                    </nav>
-                </header>
+                <Blog />
             </div>
         );
     }
