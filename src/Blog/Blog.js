@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-
-
+import { Route } from "react-router-dom";
 
 class Blog extends Component {
     render() {
@@ -14,8 +13,11 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
-                <Route />
+                <Route path="/" exact render={()=> <div>Home</div>}/>
+                <Route path="/" render={()=> <div>Home 2</div>}/>
             </div>
         )
     }
 }
+
+export default Blog;
