@@ -1,25 +1,27 @@
 import React, { Component } from "react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 
 import History from '../History/History';
 import TodaysMatch from '../TodaysMatch/TodaysMatch';
 
+import './Blog.css';
+
 class Blog extends Component {
     render() {
         return (
-            <div className="blog">
+            <div className="Blog">
                 <header>
                     <nav>
                         <ul>
-                            <li><a href="/">Home </a></li>
-                            <li><a href="/history">History</a></li>
+                            <li><Link to="/">Home </Link></li>
+                            <li><Link to="/history">History</Link></li>
                         </ul>
                     </nav>
                 </header>
                 {/* <Route path="/" exact render={()=> <div>Home</div>}/>
                 <Route path="/" render={()=> <div>Home 2</div>}/> */}
                 <Route path="/" exact component={TodaysMatch} />
-                <Route path="/#/history" exact component={History} />
+                <Route path="#history" exact component={History} />
             </div>
         )
     }
