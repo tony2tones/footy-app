@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 
 // import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
 // import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
@@ -6,12 +6,14 @@ import React from "react";
 // import HomeTeam from './HomeTeam/HomeTeam';
 // import Date from './Date/Date';
 
-const History = (props) => {
-    return (
-        <div className="width">
-          <div>This is the history between the teams page</div>
-        </div>
-    )
+class History extends Component {
+    render() {
+        return (
+            <div className="width">
+                <div>This is the history between the teams page</div>
+            </div>
+        )
+    }
 }
 
 export default History;
