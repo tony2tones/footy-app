@@ -53,17 +53,18 @@ class History extends Component {
             .then((res) => {
                 console.log(res.data);
 
-                // this.setState({
-                //     response: res.body,
-                //     isLoading: false,
-                //     showResults: true
-                // });
+                this.setState({
+                    response: res.body,
+                    // isLoading: false,
+                    // showResults: true
+                });
             })
             .catch(() => {
                 // will handel this later
             });
     };
     render() {
+
         return (
             <div>
                 <div>
@@ -72,7 +73,9 @@ class History extends Component {
                     <button onClick={() => { this.hToH(this.state.teamA, this.state.teamB) }}>Past results </button>
                 </div>
                 <div className="results">
-                    <Date />
+                    <Date 
+                        teamNameList={this.state.response}
+                    />
                     <HomeTeam />
                     <AwayTeam />
                 </div>
