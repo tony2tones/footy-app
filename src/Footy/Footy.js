@@ -8,8 +8,9 @@ import './Footy.css';
 
 class Blog extends Component {
     render() {
+
         return (
-            <div className="Blog">
+            <div className="Blog">            
                 <header>
                     <nav>
                         <ul>
@@ -18,8 +19,8 @@ class Blog extends Component {
                         </ul>
                     </nav>
                 </header>
-                <Route path="/" exact component={TodaysMatch} />
-                <Route path="/history" exact render={(props) => <History {...props} />} />
+                <Route path="/history" exact component={History} />
+                <Route path="/" exact component={TodaysMatch} />                
             </div>
         )
     }

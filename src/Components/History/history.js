@@ -23,7 +23,9 @@ class History extends Component {
                 teamA: 'Chelsea',
                 teamB: 'Liverpool',
                 response: '',
-            }
+            };
+            this.homeTeamChange = this.homeTeamChange.bind(this);
+            this.AwayTeamChange = this.AwayTeamChange.bind(this);
         }
     }
     homeTeamChange = (event) => {
@@ -37,6 +39,7 @@ class History extends Component {
         });
     }
     componentDidMount() {
+        console.log(this.state)
         if (this.state.teamA != null) {
             this.hToH(this.state.teamA, this.state.teamB);
         } else {
@@ -59,12 +62,12 @@ class History extends Component {
             });
     };
     render() {
-
         return (
             <div>
                 <div>
-                    <HomeTeamInput changed={this.homeTeamChange.bind(this)} HomeTeam={this.state.teamA} />
-                    <AwayTeamInput changed={this.AwayTeamChange.bind(this)} AwayTeam={this.state.teamB} />
+                    <HomeTeamInput changed={this.homeTeamChange} HomeTeam={this.state.teamA} />
+                    <AwayTeamInput changed={this.AwayTeamChange} AwayTeam={this.state.teamB} />
+                    <button onClick={() => {this.hToH(this.state.teamA,this.state.teamB)}}>Past results </button>
                 </div>
             </div>
         )

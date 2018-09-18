@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import Blog from './Footy/Footy';
 
 class App extends Component {
-    
+
     render() {
         return (
             <div>
@@ -16,5 +16,6 @@ class App extends Component {
         );
     }
 }
-export default App;
 ReactDOM.render(<App />, document.getElementById("app"));
+
+export default App;
