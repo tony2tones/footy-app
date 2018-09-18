@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-// import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
-// import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
-// import AwayTeam from './AwayTeam/AwayTeam';
-// import HomeTeam from './HomeTeam/HomeTeam';
-// import Date from './Date/Date';
+import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
+import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
+import AwayTeam from './AwayTeam/AwayTeam';
+import HomeTeam from './HomeTeam/HomeTeam';
+import Date from './Date/Date';
 
 // Constant variables
 const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f';
@@ -26,10 +26,45 @@ class History extends Component {
             }
         }
     }
+    homeTeamChange = (event) => {
+        this.setState({
+            teamA: event.target.value
+        });
+    }
+    AwayTeamChange = (event) => {
+        this.setState({
+            teamB: event.target.value
+        });
+    }
+    componentDidMount() {
+        if (this.state.teamA != null) {
+            this.hToH(this.state.teamA, this.state.teamB);
+        } else {
+            console.log('this has failed');
+        }
+    }
+    hToH(teamB, teamA) {
+        axios.get(`https://apifootball.com/api/?action=get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
+            .then((res) => {
+                console.log(res.data);
+
+                // this.setState({
+                //     response: res.body,
+                //     isLoading: false,
+                //     showResults: true
+                // });
+            })
+            .catch(() => {
+                // will handel this later
+            });
+    };
     render() {
         return (
             <div>
-                <div>This is the history between the teams page</div>
+                <div>
+                    <HomeTeamInput changed={this.homeTeamChange.bind(this)} HomeTeam={this.state.teamA} />
+                    <AwayTeamInput changed={this.AwayTeamChange.bind(this)} AwayTeam={this.state.teamB} />
+                </div>
             </div>
         )
     }
