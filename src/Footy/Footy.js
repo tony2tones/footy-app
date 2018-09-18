@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 
-import History from '../History/History';
-import TodaysMatch from '../TodaysMatch/TodaysMatch';
+import History from '../Components/History/History';
+import TodaysMatch from '../Components/TodaysMatch/TodaysMatch';
 
 import './Blog.css';
 
