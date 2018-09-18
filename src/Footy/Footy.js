@@ -19,7 +19,7 @@ class Blog extends Component {
                     </nav>
                 </header>
                 <Route path="/" exact component={TodaysMatch} />
-                <Route path="#history" exact component={History} />
+                <Route path="/history" exact component={History} />
             </div>
         )
     }
