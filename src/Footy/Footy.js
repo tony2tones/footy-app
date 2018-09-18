@@ -4,7 +4,7 @@ import { Route, Link } from "react-router-dom";
 import History from '../Components/History/History';
 import TodaysMatch from '../Components/TodaysMatch/TodaysMatch';
 
-import './Blog.css';
+import './Footy.css';
 
 class Blog extends Component {
     render() {
