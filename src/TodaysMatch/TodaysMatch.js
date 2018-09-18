@@ -1,12 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
 
-const TodaysMatch = () => {
-    return (
-        <div>
-            <p>todays game</p>
-        </div>
-    )
-
+class TodaysMatch extends Component {
+    render() {
+        return (
+            <div>
+                <p>todays game</p>
+            </div>
+        )
+    }
 }
 
 export default TodaysMatch;
