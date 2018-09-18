@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 
 // import History from './History/History';
 // import TodaysMatch from './TodaysMatch/TodaysMatch';
-import Blog from './Blog/Blog';
+import Blog from './Footy/Footy';
 
 // import './App.css';
 
