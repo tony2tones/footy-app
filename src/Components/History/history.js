@@ -7,6 +7,8 @@ import AwayTeam from './AwayTeam/AwayTeam';
 import HomeTeam from './HomeTeam/HomeTeam';
 import Date from './Date/Date';
 
+import './history.css'
+
 // Constant variables
 const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f';
 const baseUrl = 'https://apifootball.com/api/?action=';
@@ -67,7 +69,12 @@ class History extends Component {
                 <div>
                     <HomeTeamInput changed={this.homeTeamChange} HomeTeam={this.state.teamA} />
                     <AwayTeamInput changed={this.AwayTeamChange} AwayTeam={this.state.teamB} />
-                    <button onClick={() => {this.hToH(this.state.teamA,this.state.teamB)}}>Past results </button>
+                    <button onClick={() => { this.hToH(this.state.teamA, this.state.teamB) }}>Past results </button>
+                </div>
+                <div className="results">
+                    <Date />
+                    <HomeTeam />
+                    <AwayTeam />
                 </div>
             </div>
         )
