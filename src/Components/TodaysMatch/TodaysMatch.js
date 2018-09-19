@@ -17,9 +17,13 @@ class TodaysMatch extends Component {
         }
     }
 
+    ComponentDidMount() {
+
+    }
+
 
     headToHead(teamB, teamA) {
-        axios.get(`https://apifootball.com/api/?action=get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
+        axios.get(`https://apifootball.com/api/?action=get_events&from=2018-10-30&to=2018-11-01&APIkey=${apiKEY}`)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
