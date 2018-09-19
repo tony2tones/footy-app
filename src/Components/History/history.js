@@ -38,7 +38,6 @@ class History extends Component {
         });
     }
     componentDidMount() {
-        console.log(this.state)
         if (this.state.teamA != null) {
             this.headToHead(this.state.teamA, this.state.teamB);
         } else {
@@ -46,7 +45,7 @@ class History extends Component {
         }
     }
     headToHead(teamB, teamA) {
-        axios.get(`https://apifootball.com/api/?action=get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
+        axios.get(`${baseUrl}get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
