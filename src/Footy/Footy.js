@@ -6,11 +6,11 @@ import TodaysMatch from '../Components/TodaysMatch/TodaysMatch';
 
 import './Footy.css';
 
-class Blog extends Component {
+class Footy extends Component {
     render() {
 
         return (
-            <div className="Blog">            
+            <div className="Footy">            
                 <header>
                     <nav>
                         <ul>
@@ -26,4 +26,4 @@ class Blog extends Component {
     }
 }
 
-export default Blog;
+export default Footy;

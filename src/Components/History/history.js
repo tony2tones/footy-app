@@ -14,9 +14,6 @@ const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f
 const baseUrl = 'https://apifootball.com/api/?action=';
 
 class History extends Component {
-    static headToHead(teamA, teamB) {
-        return `${baseUrl}get_H2H&firstTeam=${teamA}&firstTeam=${teamB}&APIkey=${apiKEY}`;
-    }
     constructor(props) {
         super(props); {
             this.state = {
@@ -43,12 +40,12 @@ class History extends Component {
     componentDidMount() {
         console.log(this.state)
         if (this.state.teamA != null) {
-            this.hToH(this.state.teamA, this.state.teamB);
+            this.headToHead(this.state.teamA, this.state.teamB);
         } else {
             console.log('this has failed');
         }
     }
-    hToH(teamB, teamA) {
+    headToHead(teamB, teamA) {
         axios.get(`https://apifootball.com/api/?action=get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
             .then((res) => {
                 console.log(res.data);
@@ -65,21 +62,23 @@ class History extends Component {
     render() {
         return (
             <div>
-                <div>
-                    <HomeTeamInput changed={this.homeTeamChange} HomeTeam={this.state.teamA} />
-                    <AwayTeamInput changed={this.AwayTeamChange} AwayTeam={this.state.teamB} />
-                    <button onClick={() => { this.hToH(this.state.teamA, this.state.teamB) }}>Past results </button>
-                </div>
-                <div className="results">
-                    <Date
-                        teamNameList={this.state.response}
-                    />
-                    <HomeTeam 
-                        teamNameList={this.state.response}
-                    />
-                    <AwayTeam 
-                        teamNameList={this.state.response}
-                    />
+                <div className="wrapper">
+                    <div className="container">
+                        <HomeTeamInput changed={this.homeTeamChange} HomeTeam={this.state.teamA} />
+                        <AwayTeamInput changed={this.AwayTeamChange} AwayTeam={this.state.teamB} />
+                        <button onClick={() => { this.headToHead(this.state.teamA, this.state.teamB) }}>Past results </button>
+                    </div>
+                    <div className="container">
+                        <Date
+                            teamNameList={this.state.response}
+                        />
+                        <HomeTeam 
+                            teamNameList={this.state.response}
+                        />
+                        <AwayTeam 
+                            teamNameList={this.state.response}
+                        />
+                    </div>
                 </div>
             </div>
         )
