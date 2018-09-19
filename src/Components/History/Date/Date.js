@@ -3,12 +3,8 @@ import React from 'react';
 import './date.css';
 
 const Date = (props) => {
-    // var teamNameList = this.state.response;
-
-    // var firstTeamVsSecondTeam = teamNameList.firstTeam_VS_secondTeam || []; // dont repeat this for the other props yet
     
-    // firstTeamVsSecondTeam.map(fn => (...))
-
+    var teamNameList = props.response;
     var firstTeamVsSecondTeam = props.teamNameList.firstTeam_VS_secondTeam || [];
     const matchDate = firstTeamVsSecondTeam.map((matchDetails, index) => {
         return (

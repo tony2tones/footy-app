@@ -52,9 +52,8 @@ class History extends Component {
         axios.get(`https://apifootball.com/api/?action=get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
             .then((res) => {
                 console.log(res.data);
-
                 this.setState({
-                    response: res.body,
+                    response: res.data,
                     // isLoading: false,
                     // showResults: true
                 });
@@ -64,7 +63,6 @@ class History extends Component {
             });
     };
     render() {
-
         return (
             <div>
                 <div>
@@ -73,11 +71,15 @@ class History extends Component {
                     <button onClick={() => { this.hToH(this.state.teamA, this.state.teamB) }}>Past results </button>
                 </div>
                 <div className="results">
-                    <Date 
+                    <Date
                         teamNameList={this.state.response}
                     />
-                    <HomeTeam />
-                    <AwayTeam />
+                    <HomeTeam 
+                        teamNameList={this.state.response}
+                    />
+                    <AwayTeam 
+                        teamNameList={this.state.response}
+                    />
                 </div>
             </div>
         )
