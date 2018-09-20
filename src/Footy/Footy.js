@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route, NavLink } from "react-router-dom";
 
 import History from '../Components/History/History';
 import TodaysMatch from '../Components/TodaysMatch/TodaysMatch';
@@ -14,8 +14,8 @@ class Footy extends Component {
                 <header>
                     <nav>
                         <ul>
-                            <li><Link to="/">Home </Link></li>
-                            <li><Link to="/history">History</Link></li>
+                            <li><NavLink to="/" exact>Home </NavLink></li>
+                            <li><NavLink to="/history">History</NavLink></li>
                         </ul>
                     </nav>
                 </header>

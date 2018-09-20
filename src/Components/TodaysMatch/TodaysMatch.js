@@ -9,23 +9,23 @@ const baseUrl = 'https://apifootball.com/api/?action=';
 class TodaysMatch extends Component {
 
     constructor(props) {
-        super(props);{
+        super(props); {
             this.state = {
-                dateFrom : '',
-                dateTo : '',
+                dateFrom: '',
+                dateTo: '',
+                response: '',
             }
         }
     }
 
     componentDidMount() {
-        if(this.state.dateFrom = ''){
-            this.todaysMatch();
-        }
+        this.todaysMatch();
+
     }
 
-
+    // https://apifootball.com/api/?action=get_events&from=2018-09-22&to=2018-09-22&league_id=62&APIkey={{apiKey}}
     todaysMatch() {
-        axios.get(`${baseUrl}get_events&from=2018-10-30&to=2018-11-01&league_id=62&APIkey=${apiKEY}`)
+        axios.get(`https://apifootball.com/api/?action=get_events&from=2018-09-22&to=2018-09-22&league_id=62&APIkey=${apiKEY}`)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
