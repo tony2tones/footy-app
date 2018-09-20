@@ -17,13 +17,15 @@ class TodaysMatch extends Component {
         }
     }
 
-    ComponentDidMount() {
-
+    componentDidMount() {
+        if(this.state.dateFrom = ''){
+            this.todaysMatch();
+        }
     }
 
 
-    headToHead(teamB, teamA) {
-        axios.get(`https://apifootball.com/api/?action=get_events&from=2018-10-30&to=2018-11-01&APIkey=${apiKEY}`)
+    todaysMatch() {
+        axios.get(`${baseUrl}get_events&from=2018-10-30&to=2018-11-01&league_id=62&APIkey=${apiKEY}`)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
@@ -38,9 +40,10 @@ class TodaysMatch extends Component {
     };
 
     render() {
+        const { dateFrom } = this.state;
         return (
             <div>
-                <p>todays game</p>
+                <p>todays game {this.state.dateFrom}</p>
             </div>
         )
     }
