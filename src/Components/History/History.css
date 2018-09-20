@@ -4,11 +4,12 @@
   }
 
   .flex-container {
+    width:60%;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: center;
+    border:2px line;
   }
   
-
   .wrapper{
     width: 100%;
     text-align: center;
