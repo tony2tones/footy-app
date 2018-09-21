@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
+import HomeTeam from './HomeTeam/HomeTeam';
+
 // Constant variables
 const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f';
 const baseUrl = 'https://apifootball.com/api/?action=';
@@ -18,14 +20,13 @@ class TodaysMatch extends Component {
     }
 
     componentDidMount() {
-        if(this.state.dateFrom = ''){
-            this.todaysMatch();
-        }
+        this.todaysMatch();
+        
     }
 
 
     todaysMatch() {
-        axios.get(`${baseUrl}get_events&from=2018-10-30&to=2018-11-01&league_id=62&APIkey=${apiKEY}`)
+        axios.get(`${baseUrl}get_events&from=2018-09-22&to=2018-09-22&league_id=62&APIkey=${apiKEY}`)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
@@ -33,6 +34,7 @@ class TodaysMatch extends Component {
                     // isLoading: false,
                     // showResults: true
                 });
+                console.log(res.data[0].match_awayteam_name);
             })
             .catch(() => {
                 // will handel this later
@@ -40,9 +42,10 @@ class TodaysMatch extends Component {
     };
 
     render() {
-        const { dateFrom } = this.state;
         return (
             <div>
+                <HomeTeam 
+                />
                 <p>todays game {this.state.dateFrom}</p>
             </div>
         )

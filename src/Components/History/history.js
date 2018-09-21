@@ -73,7 +73,7 @@ class History extends Component {
                         <Date
                             teamNameList={this.state.response}
                         />
-                        <HomeTeam 
+                        <HomeTeam
                             teamNameList={this.state.response}
                         />
                         <AwayTeam 
