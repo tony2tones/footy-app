@@ -45,6 +45,7 @@ class TodaysMatch extends Component {
         return (
             <div>
                 <HomeTeam 
+                    teamNameList={this.state.response}
                 />
                 <p>todays game {this.state.dateFrom}</p>
             </div>
