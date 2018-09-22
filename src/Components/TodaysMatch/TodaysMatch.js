@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 import HomeTeams from './HomeTeams/HomeTeams';
+import AwayTeams from './AwayTeams/AwayTeams';
+import StartTimes from './StartTimes/StartTimes';
+
+import './TodaysMatch.css';
 
 // Constant variables
 const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f';
@@ -13,17 +17,15 @@ class TodaysMatch extends Component {
     constructor(props) {
         super(props); {
             this.state = {
-                dateFrom : '',
-                dateTo : '',
+                dateFrom: '',
+                dateTo: '',
                 response: '',
             }
         }
     }
 
     componentDidMount() {
-        if(this.state.dateFrom = ''){
-            this.todaysMatch();
-        }
+        this.todaysMatch();
     }
 
     // https://apifootball.com/api/?action=get_events&from=2018-09-22&to=2018-09-22&league_id=62&APIkey={{apiKey}}
@@ -36,7 +38,7 @@ class TodaysMatch extends Component {
                     // isLoading: false,
                     // showResults: true
                 });
-                console.log(res.data[0].match_awayteam_name);
+                // console.log(res.data[0].match_awayteam_name);
             })
             .catch(() => {
                 console.log('it didnt work');
@@ -47,9 +49,19 @@ class TodaysMatch extends Component {
     render() {
         return (
             <div>
-                <HomeTeams 
-                    teamNameList={this.state.response}
-                />
+                <div className="wrapper">
+                    <div className="container">
+                        <HomeTeams
+                            teamNameList={this.state.response}
+                        />
+                        <StartTimes
+                            teamNameList={this.state.response}
+                        />
+                        <AwayTeams
+                            teamNameList={this.state.response}
+                        />
+                    </div>
+                </div>
                 <p>todays game {this.state.dateFrom}</p>
             </div>
         )

@@ -1,0 +1,10 @@
+.container {
+    display:inherit;
+    justify-content: center;
+  }
+
+  .wrapper{
+    
+    width: 100%;
+    text-align: center;
+  }
