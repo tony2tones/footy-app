@@ -6,3 +6,7 @@
     grid-template-rows: 100px;
     text-align: center;
   }
+
+  .boarder{
+    border-style:solid;
+  }

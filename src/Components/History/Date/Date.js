@@ -4,8 +4,8 @@ import './date.css';
 
 const Date = (props) => {
     
-    var teamNameList = props.response;
     var firstTeamVsSecondTeam = props.teamNameList.firstTeam_VS_secondTeam || [];
+    firstTeamVsSecondTeam = firstTeamVsSecondTeam.slice(0,1);
     const matchDate = firstTeamVsSecondTeam.map((matchDetails, index) => {
         return (
             <div key={index}>

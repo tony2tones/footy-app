@@ -47,6 +47,7 @@ class History extends Component {
     headToHead(teamB, teamA) {
         axios.get(`${baseUrl}get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
             .then((res) => {
+                // const results = res.data.slice(0,1);
                 console.log(res.data);
                 this.setState({
                     response: res.data,
@@ -67,16 +68,18 @@ class History extends Component {
                         <AwayTeamInput changed={this.AwayTeamChange} AwayTeam={this.state.teamB} />
                         <button onClick={() => { this.headToHead(this.state.teamA, this.state.teamB) }}>Past results </button>
                     </div>
-                    <div className="container">
+                    <div className="boarder">
+                        <div className="container">
                         <Date
                             teamNameList={this.state.response}
                         />
-                        <HomeTeam 
+                        <HomeTeam
                             teamNameList={this.state.response}
                         />
                         <AwayTeam 
                             teamNameList={this.state.response}
                         />
+                        </div>
                     </div>
                 </div>
             </div>

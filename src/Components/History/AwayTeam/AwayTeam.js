@@ -5,6 +5,7 @@ import './AwayTeam.css';
 
 const AwayTeam = (props) => {
     var firstTeamVsSecondTeam = props.teamNameList.firstTeam_VS_secondTeam || [];
+    firstTeamVsSecondTeam = firstTeamVsSecondTeam.slice(0,1);
     const matchDetailsList = firstTeamVsSecondTeam.map((matchDetails, index) => {
         return (
             <div key={index}>
