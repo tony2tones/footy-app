@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HomeTeam = (props) => {
+const HomeTeams = (props) => {
     var firstTeamVsSecondTeam = props.teamNameList || [];
     firstTeamVsSecondTeam = firstTeamVsSecondTeam.slice(0, 1);
     const matchDetailsList = firstTeamVsSecondTeam.map((matchDetails, index) => {
@@ -23,4 +23,4 @@ const HomeTeam = (props) => {
     )
 }
 
-export default HomeTeam;
+export default HomeTeams;

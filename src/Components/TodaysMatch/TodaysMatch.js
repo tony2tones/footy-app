@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-import HomeTeam from './HomeTeam/HomeTeam';
+import HomeTeams from './HomeTeams/HomeTeams';
 
 // Constant variables
 const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f';
@@ -45,7 +45,7 @@ class TodaysMatch extends Component {
     render() {
         return (
             <div>
-                <HomeTeam 
+                <HomeTeams 
                     teamNameList={this.state.response}
                 />
                 <p>todays game {this.state.dateFrom}</p>
