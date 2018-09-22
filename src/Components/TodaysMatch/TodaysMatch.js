@@ -15,6 +15,7 @@ class TodaysMatch extends Component {
             this.state = {
                 dateFrom : '',
                 dateTo : '',
+                response: '',
             }
         }
     }
@@ -38,6 +39,7 @@ class TodaysMatch extends Component {
                 console.log(res.data[0].match_awayteam_name);
             })
             .catch(() => {
+                console.log('it didnt work');
                 // will handel this later
             });
     };

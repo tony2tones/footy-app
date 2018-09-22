@@ -3,9 +3,11 @@ import React from 'react';
 import './HomeTeam.css';
 
 const HomeTeam = (props) => {
-    var todayTeam = props.teamNameList || [];
-    todayTeam = todayTeam.slice(0, 1);
-    const matchDetailsList = todayTeam.map((matchDetails, index) => {
+
+    var firstTeamVsSecondTeam = props.teamNameList.firstTeam_VS_secondTeam || [];
+    firstTeamVsSecondTeam = firstTeamVsSecondTeam.slice(0,1);
+
+    const matchDetailsList = firstTeamVsSecondTeam.map((matchDetails, index) => {
         return (
             <div key={index}>
                 <div>{matchDetails.match_hometeam_name}</div>

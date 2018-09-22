@@ -1,9 +1,9 @@
 import React from 'react';
 
 const HomeTeams = (props) => {
-    var firstTeamVsSecondTeam = props.teamNameList || [];
-    firstTeamVsSecondTeam = firstTeamVsSecondTeam.slice(0, 1);
-    const matchDetailsList = firstTeamVsSecondTeam.map((matchDetails, index) => {
+    var todaysMatches = props.teamNameList || [];
+    todaysMatches = todaysMatches.slice(0, 1);
+    const matchDetailsList = todaysMatches.map((matchDetails, index) => {
         return (
             <div key={index}>
                 <div>{matchDetails.match_hometeam_name}</div>
