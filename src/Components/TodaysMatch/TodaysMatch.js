@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import axios from 'axios';
 
 import Results from './Results/Results';
-import AwayTeams from './AwayTeams/AwayTeams';
-import StartTimes from './StartTimes/StartTimes';
 
 import './TodaysMatch.css';
 

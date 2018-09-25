@@ -4,17 +4,15 @@ import React from 'react';
 
 const Results = (props) => {
     var resluts = props.teamNameList || [];
-    // resluts = resluts.slice(0, 1);
+    resluts = resluts.slice(0, 1);
     const matchDetailsList = resluts.map((matchDetails, index) => {
         return (
             <div key={index}>
-
                 <tr>
                     <td>{matchDetails.match_hometeam_name}</td>
                     <td>{matchDetails.match_time}</td>
                     <td>{matchDetails.match_awayteam_name}</td>
                 </tr>
-
             </div>
         )
     });
@@ -24,15 +22,12 @@ const Results = (props) => {
             <div className="boarder">
 
                 <table className="results-row">
-                    <thead>
-                        <tr>
-                            <th>Today Match ups</th>
-                        </tr>
-                    </thead>
                     <tr>
-                        {matchDetailsList}
+                        <th>Today Match ups</th>
                     </tr>
-
+                    {/* <tr> */}
+                        {matchDetailsList}
+                    {/* </tr> */}
                 </table>
             </div>
         </div >
