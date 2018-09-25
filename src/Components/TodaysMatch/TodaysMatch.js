@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-import HomeTeams from './HomeTeams/HomeTeams';
+import Results from './Results/Results';
 import AwayTeams from './AwayTeams/AwayTeams';
 import StartTimes from './StartTimes/StartTimes';
 
@@ -51,15 +51,10 @@ class TodaysMatch extends Component {
             <div>
                 <div className="wrapper">
                     <div className="container">
-                        <HomeTeams
+                        <Results
                             teamNameList={this.state.response}
                         />
-                        <StartTimes
-                            teamNameList={this.state.response}
-                        />
-                        <AwayTeams
-                            teamNameList={this.state.response}
-                        />
+                        
                     </div>
                 </div>
                 <p>todays game {this.state.dateFrom}</p>
