@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-import HomeTeam from './HomeTeam/HomeTeam';
+import Results from './Results/Results';
 
 // Constant variables
 const apiKEY = 'a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f';
@@ -25,7 +25,6 @@ class TodaysMatch extends Component {
         
     }
 
-
     todaysMatch() {
         axios.get(`${baseUrl}get_events&from=2018-09-22&to=2018-09-22&league_id=62&APIkey=${apiKEY}`)
             .then((res) => {
@@ -45,7 +44,7 @@ class TodaysMatch extends Component {
     render() {
         return (
             <div>
-                <HomeTeam 
+                <Results 
                     teamNameList={this.state.response}
                 />
                 <p>todays game {this.state.dateFrom}</p>
