@@ -14,4 +14,11 @@ table {
 .centered-cell {
     text-align: center;
   }
+  .row-style {
+    text-align: center;
+  }
+  .row-style td {
+      padding-top:20px;
+      padding-bottom:20px;
+  }
   

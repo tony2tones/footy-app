@@ -7,7 +7,7 @@ const Results = (props) => {
     // resluts = resluts.slice(0, 1);
     const matchDetailsList = results.map((matchDetails, index) => {
         return (
-            <tr key={index}>
+            <tr key={index} className="row-style">
                 <td>{matchDetails.match_hometeam_name}</td>
                 <td>{matchDetails.match_time}</td>
                 <td>{matchDetails.match_awayteam_name}</td>
@@ -24,7 +24,7 @@ const Results = (props) => {
                             <th colSpan="3" >Today Match ups</th>
                         </tr>
                     </thead>
-                    <tbody className="row-style">
+                    <tbody >
                         {matchDetailsList}
                     </tbody>
                 </table>
