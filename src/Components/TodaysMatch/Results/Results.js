@@ -19,10 +19,12 @@ const Results = (props) => {
         <div>
             <div className="boarder">
                 <table >
-                    <tbody className="row-style">
+                    <thead>
                         <tr>
                             <th colspan="3" >Today Match ups</th>
                         </tr>
+                    </thead>
+                    <tbody className="row-style">
                         {matchDetailsList}
                     </tbody>
                 </table>

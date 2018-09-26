@@ -4,7 +4,7 @@ th {
 }
 table {
     width: 100%;
-    border-style:solid 2px black;
+    /* border-style:solid 2px black; */
     background-color: silver;
     /* margin-top: 20px;
     margin-left: 200px;
