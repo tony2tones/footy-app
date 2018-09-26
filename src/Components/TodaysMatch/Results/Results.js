@@ -7,32 +7,23 @@ const Results = (props) => {
     // resluts = resluts.slice(0, 1);
     const matchDetailsList = resluts.map((matchDetails, index) => {
         return (
-            <div key={index}>
-
-                <tr>
-                    <td>{matchDetails.match_hometeam_name}</td>
-                    <td>{matchDetails.match_time}</td>
-                    <td>{matchDetails.match_awayteam_name}</td>
-                </tr>
-
-            </div>
+            <tr key={index}>
+                <td>{matchDetails.match_hometeam_name}</td>
+                <td>{matchDetails.match_time}</td>
+                <td>{matchDetails.match_awayteam_name}</td>
+            </tr>
         )
     });
 
     return (
         <div>
             <div className="boarder">
-
                 <table className="results-row">
-                    <thead>
+                    <tbody>
                         <tr>
                             <th>Today Match ups</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {matchDetailsList}
-                        </tr>
+                        {matchDetailsList}
                     </tbody>
                 </table>
             </div>
