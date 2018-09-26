@@ -1,5 +1,10 @@
 .results-row {
     width: 500px;
     display: flex;
+<<<<<<< HEAD
     justify-content: space-around;
+=======
+    /* justify-content: space-around; */
+    justify-content: center;
+>>>>>>> b247a07730bc06ee6a9cce61dce38ef1aa469219
 }

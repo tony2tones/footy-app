@@ -47,7 +47,6 @@ class History extends Component {
     headToHead(teamB, teamA) {
         axios.get(`${baseUrl}get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
             .then((res) => {
-                // const results = res.data.slice(0,1);
                 console.log(res.data);
                 this.setState({
                     response: res.data,

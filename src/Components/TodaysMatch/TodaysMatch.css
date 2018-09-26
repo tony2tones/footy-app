@@ -1,0 +1,10 @@
+.container {
+    display:block;
+    justify-content: center;
+  }
+
+  .wrapper{
+    
+    width: 100%;
+    text-align: center;
+  }
