@@ -1,8 +1,7 @@
-th {
-    text-align: right;
-    height: 50px;
+table th {
+    padding: 10px;
+    text-align: center;
 }
 table {
     width: 100%;
-    justify-content: center;
 }
