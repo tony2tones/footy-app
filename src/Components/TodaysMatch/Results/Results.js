@@ -21,7 +21,7 @@ const Results = (props) => {
                 <table >
                     <tbody>
                         <tr>
-                            <th>Today Match ups</th>
+                            <th colspan="3">Today Match ups</th>
                         </tr>
                         {matchDetailsList}
                     </tbody>

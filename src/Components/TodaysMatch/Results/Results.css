@@ -5,3 +5,7 @@ table th {
 table {
     width: 100%;
 }
+
+.centered-cell {
+    text-align: center;
+  }
