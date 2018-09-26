@@ -1,10 +1,10 @@
 import React from 'react';
 
 
-const Results = (props) => {
-    var resluts = props.teamNameList || [];
+const Previous = (props) => {
+    var results = props.teamNameList.firstTeam_VS_secondTeam || [];
     // resluts = resluts.slice(0, 1);
-    const matchDetailsList = resluts.map((matchDetails, index) => {
+    const matchDetailsList = results.map((matchDetails, index) => {
         return (
             <div key={index}>
                 <div>{matchDetails.match_hometeam_name}</div>
@@ -25,4 +25,4 @@ const Results = (props) => {
     )
 }
 
-export default Results;
+export default Previous;
