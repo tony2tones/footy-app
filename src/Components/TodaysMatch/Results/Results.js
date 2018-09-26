@@ -29,10 +29,11 @@ const Results = (props) => {
                             <th>Today Match ups</th>
                         </tr>
                     </thead>
-                    <tr>
-                        {matchDetailsList}
-                    </tr>
-
+                    <tbody>
+                        <tr>
+                            {matchDetailsList}
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div >
