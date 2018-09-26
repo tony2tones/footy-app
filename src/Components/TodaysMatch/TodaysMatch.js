@@ -26,6 +26,7 @@ class TodaysMatch extends Component {
     todaysMatch() {
         axios.get(`${baseUrl}get_events&from=2018-09-22&to=2018-09-22&league_id=62&APIkey=${apiKEY}`)
             .then((res) => {
+                console.log(res.data);
                 this.setState({
                     response: res.data,
                     // isLoading: false,

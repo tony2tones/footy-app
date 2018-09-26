@@ -3,7 +3,7 @@ import React from 'react';
 import "./Results.css";
 
 const Results = (props) => {
-    var results = props.teamNameList.firstTeam_VS_secondTeam || [];
+    var results = props.teamNameList || [];
     // resluts = resluts.slice(0, 1);
     const matchDetailsList = results.map((matchDetails, index) => {
         return (
