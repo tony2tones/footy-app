@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import axios from 'axios';
 
-import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
 import AwayTeamInput from './AwayTeamInput/AwayTeamInput';
-import AwayTeam from './AwayTeam/AwayTeam';
-import HomeTeam from './HomeTeam/HomeTeam';
-import Date from './Date/Date';
+import HomeTeamInput from './HomeTeamInput/HomeTeamInput';
+import Previous from './Previous/Previous';
 
 import './history.css'
 
@@ -69,13 +67,7 @@ class History extends Component {
                     </div>
                     <div className="boarder">
                         <div className="container">
-                        <Date
-                            teamNameList={this.state.response}
-                        />
-                        <HomeTeam
-                            teamNameList={this.state.response}
-                        />
-                        <AwayTeam 
+                        <Previous
                             teamNameList={this.state.response}
                         />
                         </div>

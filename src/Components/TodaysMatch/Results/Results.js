@@ -21,7 +21,7 @@ const Results = (props) => {
                 <table >
                     <thead>
                         <tr>
-                            <th colspan="3" >Today Match ups</th>
+                            <th colSpan="3" >Today Match ups</th>
                         </tr>
                     </thead>
                     <tbody className="row-style">
