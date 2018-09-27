@@ -1,3 +1,3 @@
-.boarder {
-    display:inline-block;
+.container {
+    align-content:space-between;
 }
