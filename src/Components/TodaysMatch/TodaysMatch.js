@@ -46,7 +46,6 @@ class TodaysMatch extends Component {
                     // isLoading: false,
                     // showResults: true
                 });
-                // console.log(res.data[0].match_awayteam_name);
             })
             .catch(() => {
                 console.log('it didnt work or there are just simply no games');
