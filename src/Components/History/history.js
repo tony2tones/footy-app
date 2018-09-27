@@ -42,6 +42,11 @@ class History extends Component {
             console.log('this has failed');
         }
     }
+    handleKeyPress(e) {
+        if (e.key === 'Enter') {
+          alert('Enter pressed')
+        }
+      }
     headToHead(teamB, teamA) {
         axios.get(`${baseUrl}get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
             .then((res) => {
@@ -61,9 +66,19 @@ class History extends Component {
             <div>
                 <div className="wrapper">
                     <div>
-                        <HomeTeamInput changed={this.homeTeamChange} HomeTeam={this.state.teamA} />
-                        <AwayTeamInput changed={this.AwayTeamChange} AwayTeam={this.state.teamB} />
-                        <button onClick={() => { this.headToHead(this.state.teamA, this.state.teamB) }}>Past results </button>
+                        <HomeTeamInput 
+                        changed={this.homeTeamChange} 
+                        HomeTeam={this.state.teamA}
+                        onKeyPress={this.handleKeyPress}
+                         />
+                        <AwayTeamInput 
+                        changed={this.AwayTeamChange} 
+                        AwayTeam={this.state.teamB}
+                        onKeyPress={this.handleKeyPress}
+                         />
+                        <button 
+                        onClick={() => { this.headToHead(this.state.teamA, this.state.teamB) }}
+                        >Past results </button>
                     </div>
                     <div className="boarder">
                         <div className="container">
