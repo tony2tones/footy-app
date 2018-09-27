@@ -12,7 +12,7 @@ class TodaysMatch extends Component {
     constructor(props) {
         super(props); {
             this.state = {
-                dateFrom: '',
+                dateFrom: '2018-09-29',
                 dateTo: '',
                 response: '',
             }
@@ -20,11 +20,25 @@ class TodaysMatch extends Component {
     }
 
     componentDidMount() {
-        this.todaysMatch();
+        if (this.state.dateFrom != '') {
+            var now = new Date();
+            var year = now.getFullYear().toString();
+            var m = (now.getMonth() + 1).toString();
+            var d = now.getDate().toString();
+            var month = m < 10 ? '0' + m : m;
+            var day = d < 10 ? '0' + d : d;
+            var date = year + '-' + month + '-' + d;
+            console.log(date, '', now);
+            this.setState({
+                dateFrom: date
+            });
+            this.todaysMatch(this.state.dateFrom);
+        }
+        
     }
 
-    todaysMatch() {
-        axios.get(`${baseUrl}get_events&from=2018-09-22&to=2018-09-22&league_id=62&APIkey=${apiKEY}`)
+    todaysMatch(date) {
+        axios.get(`${baseUrl}get_events&from=${date}&to=${date}&league_id=62&APIkey=${apiKEY}`)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
@@ -35,7 +49,8 @@ class TodaysMatch extends Component {
                 // console.log(res.data[0].match_awayteam_name);
             })
             .catch(() => {
-                console.log('it didnt work');
+                console.log('it didnt work or there are just simply no games');
+
                 // will handel this later
             });
     };
@@ -43,7 +58,7 @@ class TodaysMatch extends Component {
     render() {
         return (
             <div>
-                <Results 
+                <Results
                     teamNameList={this.state.response}
                 />
             </div>
