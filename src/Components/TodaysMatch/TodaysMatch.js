@@ -12,10 +12,11 @@ class TodaysMatch extends Component {
     constructor(props) {
         super(props); {
             this.state = {
-                dateFrom: '2018-09-29',
+                dateFrom: '',
                 dateTo: '',
                 response: '',
-            }
+            };
+            this.todaysMatch = this.todaysMatch.bind(this);
         }
     }
 
