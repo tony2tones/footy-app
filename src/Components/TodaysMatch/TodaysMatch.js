@@ -3,6 +3,7 @@ import axios from "axios";
 
 import Results from "./Results/Results";
 
+var dates="";
 // Constant variables
 const apiKEY =
   "a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f";
@@ -13,30 +14,38 @@ class TodaysMatch extends Component {
     super(props);
     {
       this.state = {
-        dateFrom: "",
-        dateTo: "",
-        response: ""
+        dateFrom: '',
+        dateTo: '2018-11-04',
+        response: ''
       };
     }
   }
 
   componentDidMount() {
     this.getTodaysDate();
-    this.todaysMatch();
+    if(this.state.dateTo != null){
+        dates = this.state.dateTo;
+        this.todaysMatch(dates);
+    }
+    // this.todaysMatch();
   }
 
   getTodaysDate() {
-    var date = new Date(),
-      month = "-" + (date.getMonth() + 1),
-      day = "-" + date.getDate(),
-      year = + date.getFullYear();
-     console.log(year + month + day);
-  }
+    var d = new Date(),
+      month = "-" + (d.getMonth() + 1),
+      day = "-" + d.getDate(),
+      year = + d.getFullYear();
+     var date = year + month + day;
+     this.setState({
+         dateTo : date
+  });
+  this.todaysMatch(this.state.dateTo);
+}
 
-  todaysMatch() {
+  todaysMatch(date) {
     axios
       .get(
-        `${baseUrl}get_events&from=2018-11-4&to=2018-11-4&league_id=62&APIkey=${apiKEY}`
+        `${baseUrl}get_events&from=2018-11-4&to=${date}&league_id=62&APIkey=${apiKEY}`
       )
       .then(res => {
         console.log(res.data);
@@ -57,6 +66,7 @@ class TodaysMatch extends Component {
     return (
       <div>
         <Results teamNameList={this.state.response} />
+        <a>{this.state.dateTo}</a>
       </div>
     );
   }
