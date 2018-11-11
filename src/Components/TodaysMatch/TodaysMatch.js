@@ -15,7 +15,7 @@ class TodaysMatch extends Component {
     {
       this.state = {
         dateFrom: '',
-        dateTo: '2018-11-04',
+        dateTo: '2018-11-4',
         response: ''
       };
     }
@@ -39,13 +39,13 @@ class TodaysMatch extends Component {
      this.setState({
          dateTo : date
   });
-  this.todaysMatch(this.state.dateTo);
+  this.todaysMatch(date);
 }
 
   todaysMatch(date) {
     axios
       .get(
-        `${baseUrl}get_events&from=2018-11-4&to=${date}&league_id=62&APIkey=${apiKEY}`
+        `${baseUrl}get_events&from=${date}&to=${date}&league_id=62&APIkey=${apiKEY}`
       )
       .then(res => {
         console.log(res.data);
@@ -66,7 +66,6 @@ class TodaysMatch extends Component {
     return (
       <div>
         <Results teamNameList={this.state.response} />
-        <a>{this.state.dateTo}</a>
       </div>
     );
   }

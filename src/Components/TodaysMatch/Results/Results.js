@@ -6,6 +6,8 @@ const Results = (props) => {
     var results = props.teamNameList || [];
     // resluts = resluts.slice(0, 1);
     const matchDetailsList = results.map((matchDetails, index) => {
+        let matchTime = matchDetails.match_time;
+        console.log(matchTime);
         return (
             <tr key={index} className="row-style">
                 <td>{matchDetails.match_hometeam_name}</td>
