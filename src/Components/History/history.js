@@ -17,8 +17,8 @@ class History extends Component {
             this.state = {
                 isLoading: true,
                 showResults: false,
-                teamA: 'Chelsea',
-                teamB: 'Liverpool',
+                teamA: '',
+                teamB: '',
                 response: '',
             };
             this.homeTeamChange = this.homeTeamChange.bind(this);
@@ -36,11 +36,11 @@ class History extends Component {
         });
     }
     componentDidMount() {
-        if (this.state.teamA != null) {
-            this.headToHead(this.state.teamA, this.state.teamB);
-        } else {
-            console.log('this has failed');
-        }
+        // if (this.state.teamA != null) {
+        //     this.headToHead(this.state.teamA, this.state.teamB);
+        // } else {
+        //     console.log('this has failed');
+        // }
     }
     headToHead(teamB, teamA) {
         axios.get(`${baseUrl}get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
