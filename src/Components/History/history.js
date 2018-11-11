@@ -85,11 +85,11 @@ class History extends Component {
               Past results{" "}
             </button>
           </div>
-          {isLoading && (
-            <div>
-              its loading... <div className="loader" />{" "}
+          {isLoading && 
+            <div className="loader" >
+              its loading...
             </div>
-          )}
+          }
           {showResults && <Previous teamNameList={this.state.response} />}
         </div>
       </div>
