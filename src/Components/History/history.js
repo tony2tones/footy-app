@@ -15,7 +15,7 @@ class History extends Component {
     constructor(props) {
         super(props); {
             this.state = {
-                isLoading: true,
+                isLoading: false,
                 showResults: false,
                 teamA: '',
                 teamB: '',
@@ -43,13 +43,14 @@ class History extends Component {
         // }
     }
     headToHead(teamB, teamA) {
+        this.setState({ isLoading : true});
         axios.get(`${baseUrl}get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
             .then((res) => {
                 console.log(res.data);
                 this.setState({
                     response: res.data,
-                    // isLoading: false,
-                    // showResults: true
+                    isLoading: false,
+                    showResults: true
                 });
             })
             .catch(() => {
@@ -57,6 +58,11 @@ class History extends Component {
             });
     };
     render() {
+        const {
+            isLoading,
+            showResults
+            } = this.state;
+
         return (
             <div>
                 <div className="wrapper">
@@ -67,9 +73,10 @@ class History extends Component {
                     </div>
                     <div className="boarder">
                         <div className="container">
-                        <Previous
+                        {isLoading && <div>its loading... <div className="loader" /> </div>}
+                        { showResults && <Previous
                             teamNameList={this.state.response}
-                        />
+                        />}
                         </div>
                     </div>
                 </div>
