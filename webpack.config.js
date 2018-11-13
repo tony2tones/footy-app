@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   module: {
-    entry: './app/index.js',
     rules: [
       {
         test: /\.(js|jsx)$/,
@@ -29,8 +28,7 @@ module.exports = {
     ]
   },
   devServer: {
-    publicPath: '/',
-    historyApiFallback: false,
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebPackPlugin({
