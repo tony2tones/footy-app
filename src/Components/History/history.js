@@ -19,6 +19,7 @@ class History extends Component {
       this.state = {
         isLoading: false,
         showResults: false,
+        validation: false,
         teamA: "",
         teamB: "",
         response: ""
@@ -35,15 +36,9 @@ class History extends Component {
   AwayTeamChange = event => {
     this.setState({
       teamB: event.target.value
-    });
+    }); 
   };
-  componentDidMount() {
-    // if (this.state.teamA != null) {
-    //     this.headToHead(this.state.teamA, this.state.teamB);
-    // } else {
-    //     console.log('this has failed');
-    // }
-  }
+  
   headToHead(teamB, teamA) {
     this.setState({ isLoading: true , showResults: false});
     axios
@@ -51,7 +46,6 @@ class History extends Component {
         `${baseUrl}get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`
       )
       .then(res => {
-        console.log(res.data);
         this.setState({
           response: res.data,
           isLoading: false,
@@ -59,11 +53,15 @@ class History extends Component {
         });
       })
       .catch(() => {
+        this.setState({
+          isLoading: false,
+          validation: true
+        });
         // will handel this later
       });
   }
   render() {
-    const { isLoading, showResults } = this.state;
+    const { isLoading, showResults, validation } = this.state;
 
     return (
       <div>
@@ -85,12 +83,14 @@ class History extends Component {
               Past results{" "}
             </button>
           </div>
+          {validation && <div className="loader">Please pick another team</div>}
           {isLoading && 
             <div className="loader" >
               its loading...
             </div>
           }
           {showResults && <Previous teamNameList={this.state.response} />}
+          
         </div>
       </div>
     );

@@ -16,7 +16,7 @@ class TodaysMatch extends Component {
       this.state = {
         showResults: false,
         response: "",
-        isLoading: true
+        isLoading: true,
       };
     }
   }
@@ -56,9 +56,14 @@ class TodaysMatch extends Component {
 
   render() {
     const { isLoading, showResults } = this.props;
+    let noResults = null;
+    if(!showResults) {
+      noResults = <div> no results </div> 
+    }
 
     return (
-      <div>
+      <div >
+        {!showResults && <div className="container"> No Premier League games for today</div>}
         {isLoading && <div> Loading ... </div>}
         {showResults && (
           <div>
