@@ -61,7 +61,17 @@ class History extends Component {
       });
   }
   render() {
-    const { isLoading, showResults, validation } = this.state;
+    const { isLoading, showResults, validation, teamA, teamB } = this.state;
+    
+    const enabled = 
+      teamA.length > 0 &&
+      teamB.length > 0;
+
+    let noResults = null;
+
+    if(validation) {
+      return noResults = <div>Please pick another team</div>
+    }
 
     return (
       <div>
@@ -75,7 +85,7 @@ class History extends Component {
               changed={this.AwayTeamChange}
               AwayTeam={this.state.teamB}
             />
-            <button
+            <button disabled={!enabled}
               onClick={() => {
                 this.headToHead(this.state.teamA, this.state.teamB);
               }}
@@ -83,7 +93,7 @@ class History extends Component {
               Past results{" "}
             </button>
           </div>
-          {validation && <div className="loader">Please pick another team</div>}
+          {noResults}
           {isLoading && 
             <div className="loader" >
               its loading...
