@@ -4,7 +4,7 @@ import "./Previous.css";
 
 const Previous = props => {
   var results = props.teamNameList.firstTeam_VS_secondTeam || [];
-  // resluts = resluts.slice(0, 1);
+  
   const matchDetailsList = results.map((matchDetails, index) => {
     return (
       <tr key={index} className="row-style">

@@ -36,11 +36,11 @@ class History extends Component {
   AwayTeamChange = event => {
     this.setState({
       teamB: event.target.value
-    }); 
+    });
   };
-  
+
   headToHead(teamB, teamA) {
-    this.setState({ isLoading: true , showResults: false});
+    this.setState({ isLoading: true, showResults: false });
     axios
       .get(
         `${baseUrl}get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`
@@ -62,15 +62,13 @@ class History extends Component {
   }
   render() {
     const { isLoading, showResults, validation, teamA, teamB } = this.state;
-    
-    const enabled = 
-      teamA.length > 0 &&
-      teamB.length > 0;
+
+    const enabled = teamA.length > 0 && teamB.length > 0;
 
     let noResults = null;
 
-    if(validation) {
-      return noResults = <div>Please pick another team</div>
+    if (validation) {
+      return (noResults = <div>Please pick another team</div>);
     }
 
     return (
@@ -85,7 +83,8 @@ class History extends Component {
               changed={this.AwayTeamChange}
               AwayTeam={this.state.teamB}
             />
-            <button disabled={!enabled}
+            <button
+              disabled={!enabled}
               onClick={() => {
                 this.headToHead(this.state.teamA, this.state.teamB);
               }}
@@ -94,13 +93,10 @@ class History extends Component {
             </button>
           </div>
           {noResults}
-          {isLoading && 
-            <div className="loader" >
-              its loading...
-            </div>
-          }
-          {showResults && <Previous teamNameList={this.state.response} />}
-          
+          {isLoading && <div className="loader">its loading...</div>}
+          <div>
+            {showResults && <Previous teamNameList={this.state.response} />}
+          </div>
         </div>
       </div>
     );
