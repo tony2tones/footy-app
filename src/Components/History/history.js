@@ -45,7 +45,7 @@ class History extends Component {
     // }
   }
   headToHead(teamB, teamA) {
-    this.setState({ isLoading: true });
+    this.setState({ isLoading: true , showResults: false});
     axios
       .get(
         `${baseUrl}get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`

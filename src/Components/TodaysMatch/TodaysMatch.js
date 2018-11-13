@@ -14,7 +14,7 @@ class TodaysMatch extends Component {
     super(props);
     {
       this.state = {
-        dateFrom: "",
+        showResults: false,
         response: "",
         isLoading: true
       };
@@ -43,20 +43,28 @@ class TodaysMatch extends Component {
         this.setState({
           response: res.data,
           isLoading: false,
-          // showResults: true
+          showResults: true
         });
         // console.log(res.data[0].match_awayteam_name);
       })
       .catch(() => {
+        // this.setState({})
         console.log("it didnt work");
         // will handel this later
       });
   }
 
   render() {
+    const { isLoading, showResults } = this.props;
+
     return (
       <div>
-        <Results teamNameList={this.state.response} />
+        {isLoading && <div> Loading ... </div>}
+        {showResults && (
+          <div>
+            <Results teamNameList={this.state.response} />
+          </div>
+        )}
       </div>
     );
   }
