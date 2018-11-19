@@ -70,64 +70,6 @@ class History extends Component {
     if (validation) {
       return (noResults = <div>Please pick another team</div>);
     }
-<<<<<<< HEAD
-    componentDidMount() {
-        if (this.state.teamA != null) {
-            this.headToHead(this.state.teamA, this.state.teamB);
-        } else {
-            console.log('this has failed');
-        }
-    }
-    handleKeyPress(e) {
-        if (e.key === 'Enter') {
-          alert('Enter pressed')
-        }
-      }
-    headToHead(teamB, teamA) {
-        axios.get(`${baseUrl}get_H2H&firstTeam=${teamA}&secondTeam=${teamB}&APIkey=${apiKEY}`)
-            .then((res) => {
-                console.log(res.data);
-                this.setState({
-                    response: res.data,
-                    // isLoading: false,
-                    // showResults: true
-                });
-            })
-            .catch(() => {
-                // will handel this later
-            });
-    };
-    render() {
-        return (
-            <div>
-                <div className="wrapper">
-                    <div>
-                        <HomeTeamInput 
-                        changed={this.homeTeamChange} 
-                        HomeTeam={this.state.teamA}
-                        onKeyPress={this.handleKeyPress}
-                         />
-                        <AwayTeamInput 
-                        changed={this.AwayTeamChange} 
-                        AwayTeam={this.state.teamB}
-                        onKeyPress={this.handleKeyPress}
-                         />
-                        <button 
-                        onClick={() => { this.headToHead(this.state.teamA, this.state.teamB) }}
-                        >Past results </button>
-                    </div>
-                    <div className="boarder">
-                        <div className="container">
-                        <Previous
-                            teamNameList={this.state.response}
-                        />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        )
-    }
-=======
 
     return (
       <div>
@@ -159,7 +101,6 @@ class History extends Component {
       </div>
     );
   }
->>>>>>> 49194880ca54a86f7f10362201eb85a12d6001d9
 }
 
 export default History;
