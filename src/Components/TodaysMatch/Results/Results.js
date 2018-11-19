@@ -2,10 +2,18 @@ import React from 'react';
 
 import "./Results.css";
 
+const addHours = d => {
+    return new Date(d + 2*6000);
+  }
+
 const Results = (props) => {
     var results = props.teamNameList || [];
     // resluts = resluts.slice(0, 1);
     const matchDetailsList = results.map((matchDetails, index) => {
+        let matchTime = addHours(matchDetails.match_time);
+        
+        console.log(matchTime);
+
         return (
             <tr key={index} className="row-style">
                 <td>{matchDetails.match_hometeam_name}</td>

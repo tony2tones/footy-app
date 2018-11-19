@@ -1,5 +1,6 @@
-import React from 'react';
+import React from "react";
 
+<<<<<<< HEAD
 import './Previous.css';
 
 const Previous = (props) => {
@@ -24,14 +25,31 @@ const Previous = (props) => {
             </div>
         )
     });
+=======
+import "./Previous.css";
+>>>>>>> 49194880ca54a86f7f10362201eb85a12d6001d9
 
+const Previous = props => {
+  var results = props.teamNameList.firstTeam_VS_secondTeam || [];
+  
+  const matchDetailsList = results.map((matchDetails, index) => {
     return (
-        <div>
-            <div>
-                {matchDetailsList}
-            </div>
-        </div >
-    )
-}
+      <tr key={index} className="row-style">
+        <td>{matchDetails.match_hometeam_name}</td>
+        <td>{matchDetails.match_hometeam_score}</td>
+        <td>{matchDetails.match_awayteam_name}</td>
+        <td>{matchDetails.match_awayteam_score}</td>
+      </tr>
+    );
+  });
+
+  return (
+    <div className="boarder">
+      <table>
+        <tbody>{matchDetailsList}</tbody>
+      </table>
+    </div>
+  );
+};
 
 export default Previous;
