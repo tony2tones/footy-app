@@ -20,8 +20,8 @@ class TodaysMatch extends Component {
         }
     }
 
-    componentDidMount() {
-        if (this.state.dateFrom != '') {
+    componentWillMount() {
+        if (this.state.dateFrom = '') {
             var now = new Date();
             var year = now.getFullYear().toString();
             var m = (now.getMonth() + 1).toString();
