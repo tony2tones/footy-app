@@ -8,9 +8,9 @@ import Previous from "./Previous/Previous";
 import "./history.css";
 
 const teams = [
-  { key:1, value: 10, name: "Liverpool"},
-  { key:2, value: 20, name: "Watford" },
-  { key:3, value: 30, name: "Chelsea" }
+  { value: 10, name: "Liverpool"},
+  { value: 20, name: "Watford" },
+  { value: 30, name: "Chelsea" }
 ];
 
 // Constant variables
@@ -31,15 +31,18 @@ class History extends Component {
         response: ""
       };
       this.homeTeamChange = this.homeTeamChange.bind(this);
-      this.AwayTeamChange = this.AwayTeamChange.bind(this);
+      this.awayTeamChange = this.awayTeamChange.bind(this);
     }
   }
+
   homeTeamChange = event => {
     this.setState({
       teamA: event.target.value
     });
+    // this.getByValue2(teams, event.target.value);
   };
-  AwayTeamChange = event => {
+
+  awayTeamChange = event => {
     this.setState({
       teamB: event.target.value
     });
@@ -79,7 +82,7 @@ class History extends Component {
       return (noResults = <div>Please pick another team</div>);
     }
 
-    console.log("test", teamB, teams[0].name);
+    console.log("test team b", teamB, "test team A", teamA);
 
     return (
       <div>
@@ -92,7 +95,7 @@ class History extends Component {
             />
             <HomeTeamInput
               teams={teams}
-              changed={this.AwayTeamChange}
+              changed={this.awayTeamChange}
               HomeTeam={this.state.teamB}
             />
             <button
