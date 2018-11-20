@@ -25,7 +25,9 @@ class Footy extends Component {
           </nav>
         </header>
         <Switch>
-          <Route path="/history" exact component={History} />
+          <Route path="/history" exact component={History}
+          // render={(props) => <History {...props} />}
+          />
           <Route path="/" component={TodaysMatch} />
         </Switch>
       </div>

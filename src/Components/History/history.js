@@ -84,7 +84,7 @@ class History extends Component {
               AwayTeam={this.state.teamB}
             />
             <button
-              disabled={!enabled}
+              // disabled={!enabled}
               onClick={() => {
                 this.headToHead(this.state.teamA, this.state.teamB);
               }}

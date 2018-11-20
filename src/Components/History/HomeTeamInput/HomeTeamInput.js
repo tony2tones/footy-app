@@ -1,54 +1,81 @@
-import React from 'react';
+import React from "react";
+import ReactDOM from "react-dom";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import InputLabel from "@material-ui/core/InputLabel";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
 
-const HomeTeamInput = (props) => {
-    return <input type="text" onChange={props.changed} value={props.HomeTeam}/>;
-};
+const styles = theme => ({
+  root: {
+    display: "flex",
+    flexWrap: "wrap"
+  },
+  formControl: {
+    margin: theme.spacing.unit,
+    minWidth: 120
+  },
+  selectEmpty: {
+    marginTop: theme.spacing.unit * 2
+  }
+});
 
-export default HomeTeamInput;
-
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-
-class SimpleMenu extends React.Component {
+class HomeTeamInput extends React.Component {
   state = {
-    anchorEl: null,
+    team: "",
+    name: "hai",
+    labelWidth: 0
   };
 
-  handleClick = event => {
-    this.setState({ anchorEl: event.currentTarget });
-  };
+  componentDidMount() {
+    this.setState({
+      labelWidth: ReactDOM.findDOMNode(this.InputLabelRef).offsetWidth
+    });
+  }
 
-  handleClose = () => {
-    this.setState({ anchorEl: null });
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   render() {
-    const { anchorEl } = this.state;
+    const { classes } = this.props;
 
     return (
-      <div>
-        <Button
-          aria-owns={anchorEl ? 'simple-menu' : undefined}
-          aria-haspopup="true"
-          onClick={this.handleClick}
-        >
-          Open Menu
-        </Button>
-        <Menu
-          id="simple-menu"
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={this.handleClose}
-        >
-          <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-          <MenuItem onClick={this.handleClose}>My account</MenuItem>
-          <MenuItem onClick={this.handleClose}>Logout</MenuItem>
-        </Menu>
-      </div>
+      <form className={classes.root} autoComplete="off">
+        <FormControl className={classes.formControl}>
+          <InputLabel htmlFor="team-simple">Select Team</InputLabel>
+          <Select
+            value={this.state.team}
+            onChange={this.handleChange}
+            inputProps={{
+              name: "team",
+              id: "team-simple"
+            }}
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+            <MenuItem value={10}>Liverpool</MenuItem>
+            <MenuItem value={20}>Watford</MenuItem>
+            <MenuItem value={30}>Chelsea</MenuItem>
+          </Select>
+        </FormControl>
+        <FormControl variant="outlined" className={classes.formControl}>
+          <InputLabel
+            ref={ref => {
+              this.InputLabelRef = ref;
+            }}
+            htmlFor="outlined-team-simple"
+          />
+        </FormControl>
+      </form>
     );
   }
 }
-//https://material-ui.com/demos/selects/
-export default SimpleMenu;
+
+HomeTeamInput.propTypes = {
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(HomeTeamInput);
