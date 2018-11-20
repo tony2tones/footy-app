@@ -1,6 +1,6 @@
 .container {
     display:flex;
-    justify-content: space-evenly;
+    justify-content: center;
   }
   .boarder {
     border:solid 2px black;

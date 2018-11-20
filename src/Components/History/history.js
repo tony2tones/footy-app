@@ -74,17 +74,20 @@ class History extends Component {
     return (
       <div>
         <div className="wrapper">
-          <div>
+          <div className="container">
             <HomeTeamInput
               changed={this.homeTeamChange}
               HomeTeam={this.state.teamA}
             />
-            <AwayTeamInput
+            <HomeTeamInput
+              changed={this.homeTeamChange}
+              HomeTeam={this.state.teamA}
+            />
+            {/* <AwayTeamInput
               changed={this.AwayTeamChange}
               AwayTeam={this.state.teamB}
-            />
+            /> */}
             <button
-              // disabled={!enabled}
               onClick={() => {
                 this.headToHead(this.state.teamA, this.state.teamB);
               }}

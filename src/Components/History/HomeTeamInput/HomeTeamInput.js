@@ -10,7 +10,8 @@ import Select from "@material-ui/core/Select";
 const styles = theme => ({
   root: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
+    justifyContent: "center",
   },
   formControl: {
     margin: theme.spacing.unit,
