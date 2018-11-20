@@ -39,7 +39,6 @@ class History extends Component {
     this.setState({
       teamA: event.target.value
     });
-    // this.getByValue2(teams, event.target.value);
   };
 
   awayTeamChange = event => {
