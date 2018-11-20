@@ -20,6 +20,5 @@
 .Footy a:hover,
 .Footy a:active,
 .Footy a.active {
-    color: #fa923f;
-    text-decoration: underline;
+    color: grey;
 }
