@@ -11,7 +11,7 @@ const styles = theme => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
-    justifyContent: "center",
+    justifyContent: "center"
   },
   formControl: {
     margin: theme.spacing.unit,
@@ -35,20 +35,16 @@ class HomeTeamInput extends React.Component {
     });
   }
 
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
-
   render() {
-    const { classes } = this.props;
+    const { classes, changed, teams } = this.props;
 
     return (
       <form className={classes.root} autoComplete="off">
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="team-simple">Select Team</InputLabel>
           <Select
-            value={this.state.team}
-            onChange={this.handleChange}
+            value={this.props.HomeTeam}
+            onChange={changed}
             inputProps={{
               name: "team",
               id: "team-simple"
@@ -57,9 +53,12 @@ class HomeTeamInput extends React.Component {
             <MenuItem value="">
               <em>None</em>
             </MenuItem>
-            <MenuItem value={10}>Liverpool</MenuItem>
+            {teams.map(({ value, name }) => (
+              <MenuItem value={value}>{name}</MenuItem>
+            ))}
+            {/* <MenuItem value={10}>Liverpool</MenuItem>
             <MenuItem value={20}>Watford</MenuItem>
-            <MenuItem value={30}>Chelsea</MenuItem>
+            <MenuItem value={30}>Chelsea</MenuItem> */}
           </Select>
         </FormControl>
         <FormControl variant="outlined" className={classes.formControl}>
@@ -76,7 +75,14 @@ class HomeTeamInput extends React.Component {
 }
 
 HomeTeamInput.propTypes = {
-  classes: PropTypes.object.isRequired
+  classes: PropTypes.object.isRequired,
+  teams: PropTypes.arrayOf(
+    PropTypes.shape({ value: PropTypes.number, name: PropTypes.string })
+  )
+};
+
+HomeTeamInput.defaultProps = {
+  teams: []
 };
 
 export default withStyles(styles)(HomeTeamInput);

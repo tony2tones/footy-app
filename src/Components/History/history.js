@@ -7,6 +7,12 @@ import Previous from "./Previous/Previous";
 
 import "./history.css";
 
+const teams = [
+  { value: 10, name: "Liverpool" },
+  { value: 20, name: "Watford" },
+  { value: 30, name: "Chelsea" }
+];
+
 // Constant variables
 const apiKEY =
   "a04860c9a603472bf0254b397f68fa5db177a1cd6b00e11707023603a957d89f";
@@ -76,17 +82,15 @@ class History extends Component {
         <div className="wrapper">
           <div className="container">
             <HomeTeamInput
+              teams={teams}
               changed={this.homeTeamChange}
               HomeTeam={this.state.teamA}
             />
             <HomeTeamInput
-              changed={this.homeTeamChange}
-              HomeTeam={this.state.teamA}
-            />
-            {/* <AwayTeamInput
+              teams={teams}
               changed={this.AwayTeamChange}
-              AwayTeam={this.state.teamB}
-            /> */}
+              HomeTeam={this.state.teamB}
+            />
             <button
               onClick={() => {
                 this.headToHead(this.state.teamA, this.state.teamB);
