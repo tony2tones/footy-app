@@ -43,7 +43,8 @@ class HomeTeamInput extends React.Component {
         <FormControl className={classes.formControl}>
           <InputLabel htmlFor="team-simple">Select Team</InputLabel>
           <Select
-            value={this.props.HomeTeam}
+            value="toasty"
+            name={this.props.HomeTeam}
             onChange={changed}
             inputProps={{
               name: "team",
@@ -56,9 +57,6 @@ class HomeTeamInput extends React.Component {
             {teams.map(({ value, name }) => (
               <MenuItem value={value}>{name}</MenuItem>
             ))}
-            {/* <MenuItem value={10}>Liverpool</MenuItem>
-            <MenuItem value={20}>Watford</MenuItem>
-            <MenuItem value={30}>Chelsea</MenuItem> */}
           </Select>
         </FormControl>
         <FormControl variant="outlined" className={classes.formControl}>

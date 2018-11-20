@@ -8,9 +8,9 @@ import Previous from "./Previous/Previous";
 import "./history.css";
 
 const teams = [
-  { value: 10, name: "Liverpool" },
-  { value: 20, name: "Watford" },
-  { value: 30, name: "Chelsea" }
+  { key:1, value: 10, name: "Liverpool"},
+  { key:2, value: 20, name: "Watford" },
+  { key:3, value: 30, name: "Chelsea" }
 ];
 
 // Constant variables
@@ -46,6 +46,9 @@ class History extends Component {
   };
 
   headToHead(teamB, teamA) {
+    if(teamA === teamB){
+      console.log("you cannot do the same teams");
+    }
     this.setState({ isLoading: true, showResults: false });
     axios
       .get(
@@ -70,12 +73,13 @@ class History extends Component {
     const { isLoading, showResults, validation, teamA, teamB } = this.state;
 
     const enabled = teamA.length > 0 && teamB.length > 0;
-
     let noResults = null;
 
     if (validation) {
       return (noResults = <div>Please pick another team</div>);
     }
+
+    console.log("test", teamB, teams[0].name);
 
     return (
       <div>
