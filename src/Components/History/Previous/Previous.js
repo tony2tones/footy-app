@@ -111,5 +111,3 @@ export default withStyles(styles)(Results);
 //     </div>
 //   );
 // };
-
-// export default Previous;

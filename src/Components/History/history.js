@@ -82,7 +82,6 @@ class History extends Component {
   render() {
     const { isLoading, showResults, validation, teamA, teamB } = this.state;
 
-    const enabled = teamA.length > 0 && teamB.length > 0;
     let noResults = null;
 
     if (validation) {
@@ -93,38 +92,36 @@ class History extends Component {
 
     return (
       <div>
-        <Paper>
-        <div className="wrapper">
-          <div className="container">
-            <HomeTeamInput
-              teams={teams}
-              changed={this.homeTeamChange}
-              HomeTeam={this.state.teamA}
-            />
-            <HomeTeamInput
-              teams={teams}
-              changed={this.awayTeamChange}
-              HomeTeam={this.state.teamB}
-            />
-            <button
-              onClick={() => {
-                this.headToHead(this.state.teamA, this.state.teamB);
-              }}
-            >
-              Past results{" "}
-            </button>
-            
+        <Paper className="panelStyle">
+          <div className="wrapper">
+            <div className="container">
+              <HomeTeamInput
+                teams={teams}
+                changed={this.homeTeamChange}
+                HomeTeam={this.state.teamA}
+              />
+              <HomeTeamInput
+                teams={teams}
+                changed={this.awayTeamChange}
+                HomeTeam={this.state.teamB}
+              />
+              <button
+                onClick={() => {
+                  this.headToHead(this.state.teamA, this.state.teamB);
+                }}
+              >
+                Past results{" "}
+              </button>
+            </div>
+
+            {noResults}
+            {isLoading && <div className="loader">its loading...</div>}
+            <div>
+              {showResults && <Results teamNameList={this.state.response} />}
+            </div>
           </div>
-          
-          {noResults}
-          {isLoading && <div className="loader">its loading...</div>}
-          <div>
-            {showResults && <Results teamNameList={this.state.response} />}
-          </div>
-        </div>
         </Paper>
       </div>
-     
     );
   }
 }
