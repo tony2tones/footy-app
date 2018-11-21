@@ -50,24 +50,24 @@ const Results = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {results.map(matchDetails => {
+          {results.map(row => {
             return (
               <TableRow className={classes.row} key={row.id}>
                 <CustomTableCell component="th" scope="row">
                   <CustomTableCell numeric>
-                    {matchDetails.match_date}
+                    {row.match_date}
                   </CustomTableCell>
                   <CustomTableCell numeric>
-                    {matchDetails.match_hometeam_name}
+                    {row.match_hometeam_name}
                   </CustomTableCell>
                   <CustomTableCell numeric>
-                    {matchDetails.match_hometeam_score}
+                    {row.match_hometeam_score}
                   </CustomTableCell>
                   <CustomTableCell numeric>
-                    {matchDetails.match_awayteam_name}
+                    {row.match_awayteam_name}
                   </CustomTableCell>
                   <CustomTableCell numeric>
-                    {matchDetails.match_awayteam_score}
+                    {row.match_awayteam_score}
                   </CustomTableCell>
                 </CustomTableCell>
               </TableRow>
