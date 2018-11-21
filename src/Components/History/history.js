@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-import AwayTeamInput from "./AwayTeamInput/AwayTeamInput";
+// import CustomizedTable from "./AwayTeamInput/AwayTeamInput";
 import HomeTeamInput from "./HomeTeamInput/HomeTeamInput";
-import Previous from "./Previous/Previous";
+import CustomizedTable from "./Previous/Previous";
 
 import "./history.css";
 
@@ -108,7 +108,8 @@ class History extends Component {
           {noResults}
           {isLoading && <div className="loader">its loading...</div>}
           <div>
-            {showResults && <Previous teamNameList={this.state.response} />}
+            {/* {showResults && <Previous teamNameList={this.state.response} />} */}
+            <CustomizedTable />
           </div>
         </div>
       </div>
