@@ -38,7 +38,7 @@ const Results = props => {
   var results = props.teamNameList.firstTeam_VS_secondTeam || [];
 
   const { classes } = props;
-  // console.log(props.teamNameList)
+  console.log(props.teamNameList);
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -50,24 +50,24 @@ const Results = props => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {results.map(row => {
+          {results.map((row,index) => {
             return (
-              <TableRow className={classes.row} key={row.id}>
+              <TableRow className={classes.row} key={index}>
                 <CustomTableCell component="th" scope="row">
-                  <CustomTableCell numeric>
-                    {row.match_date}
-                  </CustomTableCell>
+                  <CustomTableCell numeric>{row.match_date}</CustomTableCell>
+                </CustomTableCell>
+                <CustomTableCell>
                   <CustomTableCell numeric>
                     {row.match_hometeam_name}
                   </CustomTableCell>
+                  <CustomTableCell> {row.match_hometeam_score}</CustomTableCell>
+                </CustomTableCell>
+                <CustomTableCell>
                   <CustomTableCell numeric>
                     {row.match_hometeam_score}
                   </CustomTableCell>
                   <CustomTableCell numeric>
                     {row.match_awayteam_name}
-                  </CustomTableCell>
-                  <CustomTableCell numeric>
-                    {row.match_awayteam_score}
                   </CustomTableCell>
                 </CustomTableCell>
               </TableRow>

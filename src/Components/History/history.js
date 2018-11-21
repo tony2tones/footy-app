@@ -7,7 +7,7 @@ import Results from "./Previous/Previous";
 import "./history.css";
 
 const teams = [
-  { value: 10, name: "Liverpool"},
+  { value: 10, name: "Liverpool" },
   { value: 20, name: "Watford" },
   { value: 30, name: "Chelsea" }
 ];
@@ -47,7 +47,7 @@ class History extends Component {
   };
 
   headToHead(teamB, teamA) {
-    if(teamA === teamB){
+    if (teamA === teamB) {
       console.log("you cannot do the same teams");
     }
     this.setState({ isLoading: true, showResults: false });
@@ -107,8 +107,7 @@ class History extends Component {
           {noResults}
           {isLoading && <div className="loader">its loading...</div>}
           <div>
-            {/* {showResults && <Previous teamNameList={this.state.response} />} */}
-            <Results teamNameList={this.state.response} />
+            {showResults && <Results teamNameList={this.state.response} />}
           </div>
         </div>
       </div>
