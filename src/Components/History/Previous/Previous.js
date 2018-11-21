@@ -34,22 +34,12 @@ const styles = theme => ({
   },
 });
 
-let id = 0;
-function createData(name, calories, fat, carbs, protein) {
-  id += 1;
-  return { id, name, calories, fat, carbs, protein };
-}
+const Previous = props => {
+    var results = props.teamNameList.firstTeam_VS_secondTeam || [];
+    console.table(results);
 
-const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
-];
-
-function CustomizedTable(props) {
-  const { classes } = props;
+function Results(props) {
+  const { classes, teamNameList } = props;
 
   return (
     <Paper className={classes.root}>
@@ -83,11 +73,16 @@ function CustomizedTable(props) {
   );
 }
 
-CustomizedTable.propTypes = {
+Results.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(CustomizedTable);
+HomeTeamInput.defaultProps = {
+  teams: []
+};
+
+
+export default withStyles(styles)(Results);
 
 // import React from "react";
 

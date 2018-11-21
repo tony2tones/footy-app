@@ -3,7 +3,7 @@ import axios from "axios";
 
 // import CustomizedTable from "./AwayTeamInput/AwayTeamInput";
 import HomeTeamInput from "./HomeTeamInput/HomeTeamInput";
-import CustomizedTable from "./Previous/Previous";
+import Results from "./Previous/Previous";
 
 import "./history.css";
 
@@ -109,7 +109,7 @@ class History extends Component {
           {isLoading && <div className="loader">its loading...</div>}
           <div>
             {/* {showResults && <Previous teamNameList={this.state.response} />} */}
-            <CustomizedTable />
+            <Results teamNameList={this.state.response} />
           </div>
         </div>
       </div>
