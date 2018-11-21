@@ -1,69 +1,75 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 
 const CustomTableCell = withStyles(theme => ({
   head: {
     backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    color: theme.palette.common.white
   },
   body: {
-    fontSize: 14,
-  },
+    fontSize: 14
+  }
 }))(TableCell);
 
 const styles = theme => ({
   root: {
-    width: '100%',
+    width: "100%",
     marginTop: theme.spacing.unit * 3,
-    overflowX: 'auto',
+    overflowX: "auto"
   },
   table: {
-    minWidth: 700,
+    minWidth: 700
   },
   row: {
-    '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.background.default,
-    },
-  },
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.background.default
+    }
+  }
 });
 
-const Previous = props => {
-    var results = props.teamNameList.firstTeam_VS_secondTeam || [];
-    console.table(results);
+const Results = props => {
+  var results = props.teamNameList.firstTeam_VS_secondTeam || [];
 
-function Results(props) {
-  const { classes, teamNameList } = props;
-
+  const { classes } = props;
+  // console.log(props.teamNameList)
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
         <TableHead>
           <TableRow>
-            <CustomTableCell>Dessert (100g serving)</CustomTableCell>
-            <CustomTableCell numeric>Calories</CustomTableCell>
-            <CustomTableCell numeric>Fat (g)</CustomTableCell>
-            <CustomTableCell numeric>Carbs (g)</CustomTableCell>
-            <CustomTableCell numeric>Protein (g)</CustomTableCell>
+            <CustomTableCell>Date</CustomTableCell>
+            <CustomTableCell>Home</CustomTableCell>
+            <CustomTableCell>Away</CustomTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => {
+          {results.map(matchDetails => {
             return (
               <TableRow className={classes.row} key={row.id}>
                 <CustomTableCell component="th" scope="row">
-                  {row.name}
+                  <CustomTableCell numeric>
+                    {matchDetails.match_date}
+                  </CustomTableCell>
+                  <CustomTableCell numeric>
+                    {matchDetails.match_hometeam_name}
+                  </CustomTableCell>
+                  <CustomTableCell numeric>
+                    {matchDetails.match_hometeam_score}
+                  </CustomTableCell>
+                  <CustomTableCell numeric>
+                    {matchDetails.match_awayteam_name}
+                  </CustomTableCell>
+                  <CustomTableCell numeric>
+                    {matchDetails.match_awayteam_score}
+                  </CustomTableCell>
                 </CustomTableCell>
-                <CustomTableCell numeric>{row.calories}</CustomTableCell>
-                <CustomTableCell numeric>{row.fat}</CustomTableCell>
-                <CustomTableCell numeric>{row.carbs}</CustomTableCell>
-                <CustomTableCell numeric>{row.protein}</CustomTableCell>
               </TableRow>
             );
           })}
@@ -71,16 +77,15 @@ function Results(props) {
       </Table>
     </Paper>
   );
-}
+};
 
 Results.propTypes = {
-  classes: PropTypes.object.isRequired,
+  classes: PropTypes.object.isRequired
 };
 
-HomeTeamInput.defaultProps = {
-  teams: []
+Results.defaultProps = {
+  teamNameList: []
 };
-
 
 export default withStyles(styles)(Results);
 
@@ -91,7 +96,7 @@ export default withStyles(styles)(Results);
 // const Previous = props => {
 //   var results = props.teamNameList.firstTeam_VS_secondTeam || [];
 //   console.table(results);
-  
+
 //   const matchDetailsList = results.map((matchDetails, index) => {
 //     return (
 //       <tr key={index} className="row-style">

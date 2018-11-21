@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 
-// import CustomizedTable from "./AwayTeamInput/AwayTeamInput";
 import HomeTeamInput from "./HomeTeamInput/HomeTeamInput";
 import Results from "./Previous/Previous";
 
