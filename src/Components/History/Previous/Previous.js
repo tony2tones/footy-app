@@ -53,7 +53,7 @@ const Results = props => {
           {results.map((row,index) => {
             return (
               <TableRow className={classes.row} key={index}>
-                <CustomTableCell component="th" scope="row">
+                <CustomTableCell>
                   <CustomTableCell numeric>{row.match_date}</CustomTableCell>
                 </CustomTableCell>
                 <CustomTableCell>
@@ -89,13 +89,6 @@ Results.defaultProps = {
 
 export default withStyles(styles)(Results);
 
-// import React from "react";
-
-// import "./Previous.css";
-
-// const Previous = props => {
-//   var results = props.teamNameList.firstTeam_VS_secondTeam || [];
-//   console.table(results);
 
 //   const matchDetailsList = results.map((matchDetails, index) => {
 //     return (

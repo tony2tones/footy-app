@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Paper from "@material-ui/core/Paper";
 
 import HomeTeamInput from "./HomeTeamInput/HomeTeamInput";
 import Results from "./Previous/Previous";
@@ -7,9 +8,17 @@ import Results from "./Previous/Previous";
 import "./history.css";
 
 const teams = [
-  { value: 10, name: "Liverpool" },
-  { value: 20, name: "Watford" },
-  { value: 30, name: "Chelsea" }
+  { value: 1, name: "Liverpool" },
+  { value: 2, name: "Watford" },
+  { value: 3, name: "Chelsea" },
+  { value: 4, name: "Manchester United" },
+  { value: 5, name: "Arsenal" },
+  { value: 6, name: "Manchester City" },
+  { value: 7, name: "Tottenham Hotspur" },
+  { value: 8, name: "Everton" },
+  { value: 9, name: "Leicester City" },
+  { value: 10, name: "West Ham United" },
+  { value: 11, name: "Fulham" }
 ];
 
 // Constant variables
@@ -84,6 +93,7 @@ class History extends Component {
 
     return (
       <div>
+        <Paper>
         <div className="wrapper">
           <div className="container">
             <HomeTeamInput
@@ -103,14 +113,18 @@ class History extends Component {
             >
               Past results{" "}
             </button>
+            
           </div>
+          
           {noResults}
           {isLoading && <div className="loader">its loading...</div>}
           <div>
             {showResults && <Results teamNameList={this.state.response} />}
           </div>
         </div>
+        </Paper>
       </div>
+     
     );
   }
 }

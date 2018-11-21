@@ -1,9 +1,8 @@
-/* th {
+th {
     padding: 10px;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     color: aliceblue;
-    background-color: rgba(68, 106, 163, 0.904);
     font-size: 32px;
 }
 table {
@@ -21,10 +20,9 @@ table {
       color: white;
       padding-top:20px;
       padding-bottom:20px;
-      border-top:solid 0.75px rgb(167, 167, 167);
   }
 
-  tr:nth-child(even) {
+  /* tr:nth-child(even) {
     background-color: #667f97;
-}
-   */
+} */
+  
